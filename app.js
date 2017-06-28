@@ -11,8 +11,8 @@ async function runUpdater() {
   // run on initial start, then on the schedule
   await updateElasticSearch();
 
-  log.info(`Scheduling Elasticsearch update with rule '${config.UPDATE_SCHEDULE}'`);
-  schedule.scheduleJob(config.UPDATE_SCHEDULE, () => {
+  log.info(`Scheduling Elasticsearch update with rule '${config.updateSchedule}'`);
+  schedule.scheduleJob(config.updateSchedule, () => {
     // this is an async function, but await is not allowed within a lambda expression
     updateElasticSearch();
   });

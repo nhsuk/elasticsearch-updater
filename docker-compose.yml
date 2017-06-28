@@ -10,7 +10,8 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV}
       UPDATE_SCHEDULE: ${UPDATE_SCHEDULE}
-      ES_HOST: elasticsearch
+      ES_HOST: es
+      ES_INDEX: profiles
 
   elasticsearch-updater:
     extends:
@@ -18,11 +19,10 @@ services:
     volumes:
       - elasticsearch-updater-node_modules:/code/node_modules
     links:
-    - elasticsearch:elasticsearch
-
+    - elasticsearch:es
 
   elasticsearch:
-    image: elasticsearch:5.4.0
+    image: "nhsuk/profiles-db-elastic:${profiles_db_elastic_docker_image_tag-0.4.0}"
     ports:
       - 9200:9200 
 
