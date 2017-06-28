@@ -1,0 +1,105 @@
+{
+  "settings":{
+    "analysis":{
+      "analyzer":{
+        "gp_name_analyzer":{
+          "type":"custom",
+          "tokenizer":"name_tokenizer",
+          "filter":[ "lowercase", "gp_title_stop" ]
+        }
+      },
+      "tokenizer": {
+        "name_tokenizer": {
+          "type": "pattern",
+          "pattern": "[^a-zA-Z']+"
+        }
+      },
+      "filter":{
+        "gp_title_stop":{
+          "type":"stop",
+          "stopwords": [ "doctor", "doctors", "dr", "drs" ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "gps": {
+      "properties": {
+        "openingTimes": {
+          "enabled": false
+        },
+        "facilities": {
+          "enabled": false
+        },
+        "services": {
+          "enabled": false
+        },
+        "onlineServices": {
+          "enabled": false
+        },
+        "contact": {
+          "enabled": false
+        },
+        "acceptingNewPatients": {
+          "type": "boolean"
+        },
+        "address": {
+          "properties": {
+            "addressLines": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "postcode": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        },
+        "displayName": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "doctors": {
+          "type": "nested",
+          "properties": {
+            "name" : {
+              "type": "string",
+              "analyzer": "gp_name_analyzer"
+            }
+          }
+        },
+        "location" : {
+          "properties" : {
+            "coordinates" : {
+              "type" : "geo_point"
+            }
+          }
+        },
+        "name": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+version: '2.1'
+
+services:
+
+  base-app:
+    build:
+      context: .
+    volumes:
+      - .:/code
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      UPDATE_SCHEDULE: ${UPDATE_SCHEDULE}
+      ES_HOST: elasticsearch
+
+  elasticsearch-updater:
+    extends:
+      service: base-app
+    volumes:
+      - elasticsearch-updater-node_modules:/code/node_modules
+    links:
+    - elasticsearch:elasticsearch
+
+
+  elasticsearch:
+    image: elasticsearch:5.4.0
+    ports:
+      - 9200:9200 
+
+volumes:
+  elasticsearch-updater-node_modules:
