@@ -5,59 +5,73 @@ const sampleData = require('../resources/sample-data');
 
 const expect = chai.expect;
 let startTime;
-const maxWaitTime = 3 * 60 * 1000;
+const maxWaitTime = 1 * 60 * 1000;
+const indexName = 'profiles-test';
+const aliasName = 'profiles-alias';
 
 function serverReady() {
-  // delete non existant index as a server test
-  return esClient.delete('nosuch').then(() => true).catch(() => false);
+  // check if alive by deleting non existent index
+  return esClient.delete('nosuchindex').then(() => true).catch(() => false);
 }
 
-function wait(done) {
+function waitForEsToStart(done) {
   serverReady().then((res) => {
     if (res || (new Date() - startTime) > maxWaitTime) {
       done();
     } else {
-      setTimeout(() => wait(done), 3000);
+      setTimeout(() => waitForEsToStart(done), 3000);
     }
   });
 }
 
 describe('Elasticsearch Client', function test() {
   this.timeout(maxWaitTime);
+
   before((done) => {
     startTime = new Date();
-    wait(done);
+    waitForEsToStart(done);
   });
 
-  it('delete should remove index', (done) => {
-    esClient.delete('profiles').then(() => {
-      esClient.getCount('profile').catch((err) => {
-        expect(err.message).to.include('index_not_found_exception');
-        done();
-      });
-    }
-    ).catch(done);
+  beforeEach((done) => {
+    esClient.delete(indexName).then(() => done()).catch(done);
+  });
+
+  it('getIndexAlias should return current index for alias', (done) => {
+    esClient.createIndex(indexName, sampleData).then(
+      () => {
+        esClient.createAlias(indexName, aliasName).then(
+          () => {
+            esClient.getIndexForAlias(aliasName).then((result) => {
+              expect(result).to.equal(indexName);
+              done();
+            }
+            ).catch(done);
+          }
+        );
+      }
+    );
   });
 
   it('delete should silently fail when trying to remove indexes that do not exist', (done) => {
-    esClient.delete('profilesNot').then(() => {
+    esClient.delete('nosuchindex').then(() => {
       done();
     }
     ).catch(done);
   });
 
-  it('createMappings should create index mappings', (done) => {
-    esClient.createMappings('profiles').then((result) => {
-      expect(result.acknowledged).to.equal(true);
+  it('getCount should return zero for an indexes that do not exist', (done) => {
+    esClient.getCount('nosuchindex').then((count) => {
+      expect(count).to.equal(0);
       done();
     }
     ).catch(done);
   });
 
-  it('load data should create index', (done) => {
-    esClient.loadData('profiles', sampleData).then((result) => {
+  it('create index should create mapping and load data into index', (done) => {
+    esClient.createIndex(indexName, sampleData).then((result) => {
       // eslint-disable-next-line no-unused-expressions
-      expect(result.items).to.exist;
+      expect(result.count).to.equal(4);
+      expect(result.errors).to.equal(false);
       done();
     }
     ).catch(done);
