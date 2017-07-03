@@ -10,6 +10,7 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV}
       UPDATE_SCHEDULE: ${UPDATE_SCHEDULE}
+      JSON_FILE_URL: https://nhsukgpdataetl.blob.core.windows.net/etl-output/gp-data-merged.json
       ES_HOST: es
       ES_INDEX: profiles
 

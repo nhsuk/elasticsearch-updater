@@ -3,7 +3,7 @@ const profilesTransform = require('./profiles/transform');
 
 const esConfig = {
   index: process.env.ES_INDEX || 'profiles',
-  host: process.env.ES_HOST || 'localhost',
+  host: process.env.ES_HOST,
   port: process.env.ES_PORT || 9200,
   // hold mappings and transforms on settings to allow adding pharmacy config in future
   settings: {
