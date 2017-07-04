@@ -4,7 +4,7 @@
   "description": "Updates an Elasticsearch instance from a JSON file",
   "main": "scheduler.js",
   "repository": "https://github.com/nhsuk/elasticsearch-updater.git",
-  "author": "mark <markharrop@yahoo.com>",
+  "author": "Mark Harrop",
   "license": "MIT",
   "scripts": {
     "check-coverage": "istanbul check-coverage --config .istanbul.yml",
@@ -27,7 +27,7 @@
     "upload-coverage-coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "keywords": [
-    "mongodb",
+    "elasticsearch",
     "nhsuk"
   ],
   "devDependencies": {
