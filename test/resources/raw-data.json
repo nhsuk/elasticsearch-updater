@@ -1,0 +1,854 @@
+[
+  {
+    "_id": 40565,
+    "choicesId": 40565,
+    "syndicationId": 2915,
+    "name": "Blackfriars",
+    "displayName": "Blackfriars",
+    "odsCode": "Y02622",
+    "address": {
+      "addressLines": [
+        "138 Chapel Street",
+        "Salford",
+        "England - Uk"
+      ],
+      "postcode": "M3 6AF"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -2.25422954559326,
+        53.4841384887695
+      ]
+    },
+    "contact": {
+      "telephone": "0161 819 4790",
+      "fax": "0161 819 4791"
+    },
+    "openingTimes": {
+      "reception": {
+        "sunday": [],
+        "monday": [
+          {
+            "opens": "08:00",
+            "closes": "20:30"
+          }
+        ],
+        "tuesday": [
+          {
+            "opens": "08:00",
+            "closes": "19:30"
+          }
+        ],
+        "wednesday": [
+          {
+            "opens": "08:00",
+            "closes": "20:30"
+          }
+        ],
+        "thursday": [
+          {
+            "opens": "08:00",
+            "closes": "18:30"
+          }
+        ],
+        "friday": [
+          {
+            "opens": "08:00",
+            "closes": "18:30"
+          }
+        ],
+        "saturday": []
+      },
+      "surgery": {
+        "sunday": [],
+        "monday": [
+          {
+            "opens": "08:00",
+            "closes": "19:30"
+          }
+        ],
+        "tuesday": [
+          {
+            "opens": "08:00",
+            "closes": "19:30"
+          }
+        ],
+        "wednesday": [
+          {
+            "opens": "08:00",
+            "closes": "18:30"
+          }
+        ],
+        "thursday": [
+          {
+            "opens": "08:00",
+            "closes": "18:30"
+          }
+        ],
+        "friday": [
+          {
+            "opens": "08:00",
+            "closes": "18:30"
+          }
+        ],
+        "saturday": []
+      }
+    },
+    "gpCounts": {
+      "male": 1,
+      "female": 1
+    },
+    "doctors": [
+      "Dr. Babar Farooq",
+      "Dr Kish Iqbal"
+    ],
+    "acceptingNewPatients": true,
+    "facilities": {
+      "parking": [
+        {
+          "name": "Car Parking",
+          "exists": "Yes"
+        },
+        {
+          "name": "Disabled parking",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "Cycle parking",
+          "exists": "NotSpecified"
+        }
+      ],
+      "accessibility": [
+        {
+          "name": "Braille translation service",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "Disabled parking",
+          "exists": "Yes"
+        },
+        {
+          "name": "Disabled WC",
+          "exists": "Yes"
+        },
+        {
+          "name": "Induction loop",
+          "exists": "Yes"
+        },
+        {
+          "name": "RNID typetalk",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "Signing service available",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "Step free access",
+          "exists": "Yes"
+        },
+        {
+          "name": "Wheelchair access",
+          "exists": "Yes"
+        }
+      ]
+    },
+    "services": {
+      "epsEnabled": true,
+      "moreInformation": "NHS UK 0845 46 47",
+      "entries": [
+        {
+          "title": "Health checks for people with learning disabilities",
+          "code": "SRV0492",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "Blackfriars"
+        }
+      ]
+    },
+    "onlineServices": {
+      "appointments": {
+        "supplier": "EMIS",
+        "url": "https://patient.emisaccess.co.uk/appointments/available"
+      },
+      "repeatPrescriptions": {
+        "supplier": "EMIS",
+        "url": "https://patient.emisaccess.co.uk/prescriptions/request"
+      },
+      "codedRecords": {
+        "supplier": "EMIS",
+        "url": "https://patient.emisaccess.co.uk/medical-record"
+      }
+    },
+    "searchSurgery": "138 chapel street salford england - uk blackfriars m3 6af",
+    "searchDoctors": "babar farooq kish iqbal",
+    "searchName": "blackfriars"
+  },
+  {
+    "_id": 36798,
+    "choicesId": 36798,
+    "syndicationId": 3028,
+    "name": "The Densham Surgery",
+    "displayName": "The Densham Surgery",
+    "odsCode": "A81001",
+    "address": {
+      "addressLines": [
+        "Health Centre",
+        "Lawson Street",
+        "Stockton On Tees",
+        "Cleveland"
+      ],
+      "postcode": "TS18 1HU"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -1.31897032260895,
+        54.5616264343262
+      ]
+    },
+    "contact": {
+      "website": "http://www.williamsoliver.me.uk",
+      "telephone": "01642 606490",
+      "fax": "01642 618112"
+    },
+    "openingTimes": {
+      "reception": {
+        "sunday": [],
+        "monday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "tuesday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "wednesday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "thursday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "friday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "saturday": []
+      },
+      "surgery": {
+        "sunday": [],
+        "monday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "tuesday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "wednesday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "thursday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "friday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "saturday": []
+      }
+    },
+    "gpCounts": {
+      "male": 1,
+      "female": 1
+    },
+    "doctors": [
+      "Dr Gillian Oliver",
+      "Dr Stephen Richard Williams"
+    ],
+    "acceptingNewPatients": true,
+    "facilities": {
+      "parking": [
+        {
+          "name": "Car Parking",
+          "exists": "Yes"
+        },
+        {
+          "name": "Cycle parking",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "Disabled parking",
+          "exists": "NotSpecified"
+        }
+      ],
+      "accessibility": [
+        {
+          "name": "Wheelchair access",
+          "exists": "Yes"
+        },
+        {
+          "name": "Disabled WC",
+          "exists": "Yes"
+        },
+        {
+          "name": "Step free access",
+          "exists": "Yes"
+        },
+        {
+          "name": "Braille translation service",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "Disabled parking",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "Induction loop",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "RNID typetalk",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "Signing service available",
+          "exists": "NotSpecified"
+        }
+      ]
+    },
+    "services": {
+      "epsEnabled": true,
+      "entries": [
+        {
+          "title": "Asthma clinic",
+          "code": "SRV0280",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "The Densham Surgery"
+        },
+        {
+          "title": "Child health and development",
+          "code": "SRV0309",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "The Densham Surgery"
+        },
+        {
+          "title": "Clinic for chronic obstructive pulmonary disease (COPD)",
+          "code": "SRV0284",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "The Densham Surgery"
+        },
+        {
+          "title": "Contraceptive injections, implants and coils",
+          "code": "SRV0294",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "The Densham Surgery"
+        },
+        {
+          "title": "Minor surgery (for example removing moles)",
+          "code": "SRV0298",
+          "availabilityTimes": "",
+          "introduction": "Practice Offer Cryotherapy and joint injections",
+          "gpReferralRequired": false,
+          "deliverer": "The Densham Surgery"
+        },
+        {
+          "title": "Health checks for people with learning disabilities",
+          "code": "SRV0492",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "The Densham Surgery"
+        }
+      ]
+    },
+    "onlineServices": {
+      "appointments": {
+        "supplier": "TPP",
+        "url": "https://systmonline.tpp-uk.com/Login?PracticeId=A81001"
+      },
+      "repeatPrescriptions": {
+        "supplier": "TPP",
+        "url": "https://systmonline.tpp-uk.com/Login?PracticeId=A81001"
+      },
+      "codedRecords": {
+        "supplier": "TPP",
+        "url": "https://systmonline.tpp-uk.com/Login?PracticeId=A81001"
+      }
+    },
+    "searchSurgery": "health centre lawson street stockton on tees cleveland the densham surgery ts18 1hu",
+    "searchDoctors": "gillian oliver stephen richard williams",
+    "searchName": "the densham surgery"
+  },
+  {
+    "_id": 43827,
+    "choicesId": 43827,
+    "syndicationId": 3029,
+    "name": "Queens Park Medical Centre",
+    "displayName": "Queens Park Medical Centre",
+    "odsCode": "A81002",
+    "address": {
+      "addressLines": [
+        "Farrer Street",
+        "Stockton On Tees",
+        "Cleveland"
+      ],
+      "postcode": "TS18 2AW"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -1.31386435031891,
+        54.569164276123
+      ]
+    },
+    "contact": {
+      "website": "http://www.qpmc.org.uk",
+      "telephone": "01642 679681",
+      "fax": "01642 677124"
+    },
+    "openingTimes": {
+      "reception": {
+        "sunday": [],
+        "monday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "tuesday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "wednesday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "thursday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "friday": [
+          {
+            "opens": "08:30",
+            "closes": "18:00"
+          }
+        ],
+        "saturday": []
+      },
+      "surgery": {
+        "sunday": [],
+        "monday": [
+          {
+            "opens": "07:30",
+            "closes": "18:00"
+          }
+        ],
+        "tuesday": [
+          {
+            "opens": "07:30",
+            "closes": "18:00"
+          }
+        ],
+        "wednesday": [
+          {
+            "opens": "07:30",
+            "closes": "21:00"
+          }
+        ],
+        "thursday": [
+          {
+            "opens": "07:30",
+            "closes": "21:00"
+          }
+        ],
+        "friday": [
+          {
+            "opens": "07:30",
+            "closes": "18:00"
+          }
+        ],
+        "saturday": []
+      }
+    },
+    "gpCounts": {
+      "male": 6,
+      "female": 6
+    },
+    "doctors": [
+      "Dr  Vijay Dharani",
+      "Dr Clare Hodges",
+      "Doctor Ryan Ascherl",
+      "Doctor Ferrari Kwan",
+      "Dr Taif Shubbar",
+      "Dr Charlotte Saha",
+      "Dr Susan Burrows",
+      "Dr Kevin George Hall",
+      "Dr Mark Charles Glyn Hulyer",
+      "Dr Catherine McTernan",
+      "Dr Zimnako Rashid",
+      "Dr Shareen Rahman"
+    ],
+    "acceptingNewPatients": true,
+    "facilities": {
+      "parking": [
+        {
+          "name": "Car Parking",
+          "exists": "Yes"
+        },
+        {
+          "name": "Cycle parking",
+          "exists": "Yes"
+        },
+        {
+          "name": "Disabled parking",
+          "exists": "Yes"
+        }
+      ]
+    },
+    "services": {
+      "epsEnabled": true,
+      "entries": [
+        {
+          "title": "Asthma clinic",
+          "code": "SRV0280",
+          "availabilityTimes": "",
+          "introduction": "Clinics are held at various times during the week. Please contact your receptionist for further details.\r\n",
+          "gpReferralRequired": false,
+          "deliverer": "Queens Park Medical Centre"
+        },
+        {
+          "title": "Child vaccinations",
+          "code": "SRV0282",
+          "availabilityTimes": "",
+          "introduction": "Clinics are held at various times during the week. Please contact your receptionist for further details.\r\n",
+          "gpReferralRequired": false,
+          "deliverer": "Queens Park Medical Centre"
+        },
+        {
+          "title": "Clinic for chronic obstructive pulmonary disease (COPD)",
+          "code": "SRV0284",
+          "availabilityTimes": "",
+          "introduction": "Clinics are held at various times during the week. Please contact your receptionist for further details.\r\n",
+          "gpReferralRequired": false,
+          "deliverer": "Queens Park Medical Centre"
+        },
+        {
+          "title": "Counselling",
+          "code": "SRV0285",
+          "availabilityTimes": "",
+          "introduction": "Clinics are held at various times during the week. Please contact your receptionist for further details. \r\n",
+          "gpReferralRequired": false,
+          "deliverer": "Queens Park Medical Centre"
+        },
+        {
+          "title": "Contraceptive injections, implants and coils",
+          "code": "SRV0294",
+          "availabilityTimes": "",
+          "introduction": "Clinics are held at various times during the week. Please contact your receptionist for further details.\r\n",
+          "gpReferralRequired": false,
+          "deliverer": "Queens Park Medical Centre"
+        },
+        {
+          "title": "Minor surgery (for example removing moles)",
+          "code": "SRV0298",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "Queens Park Medical Centre"
+        },
+        {
+          "title": "Help with stopping smoking",
+          "code": "SRV0301",
+          "availabilityTimes": "",
+          "introduction": "Clinics are held at various times during the week. Please contact your receptionist for further details.Â \r\n",
+          "gpReferralRequired": false,
+          "deliverer": "Queens Park Medical Centre"
+        },
+        {
+          "title": "Health checks for people with learning disabilities",
+          "code": "SRV0492",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "Queens Park Medical Centre"
+        }
+      ]
+    },
+    "onlineServices": {
+      "appointments": {
+        "supplier": "TPP",
+        "url": "https://systmonline.tpp-uk.com/Login?PracticeId=A81002"
+      },
+      "repeatPrescriptions": {
+        "supplier": "TPP",
+        "url": "https://systmonline.tpp-uk.com/Login?PracticeId=A81002"
+      },
+      "codedRecords": {
+        "supplier": "TPP",
+        "url": "https://systmonline.tpp-uk.com/Login?PracticeId=A81002"
+      }
+    },
+    "searchSurgery": "farrer street stockton on tees cleveland queens park medical centre ts18 2aw",
+    "searchDoctors": "vijay dharani clare hodges ryan ascherl ferrari kwan taif shubbar charlotte saha susan burrows kevin george hall mark charles glyn hulyer catherine mcternan zimnako rashid shareen rahman",
+    "searchName": "queens park medical centre"
+  },
+  {
+    "_id": 36493,
+    "choicesId": 36493,
+    "syndicationId": 3031,
+    "name": "Woodlands Surgery",
+    "displayName": "Woodlands Surgery",
+    "odsCode": "A81004",
+    "address": {
+      "addressLines": [
+        "6 Woodlands Road",
+        "Middlesbrough"
+      ],
+      "postcode": "TS1 3BE"
+    },
+    "location": {
+      "type": "Point",
+      "coordinates": [
+        -1.23223984241486,
+        54.5718116760254
+      ]
+    },
+    "contact": {
+      "telephone": "01642 247982",
+      "fax": "01642 241636"
+    },
+    "openingTimes": {
+      "reception": {
+        "sunday": [],
+        "monday": [
+          {
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "tuesday": [
+          {
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "wednesday": [
+          {
+            "opens": "08:00",
+            "closes": "19:30"
+          }
+        ],
+        "thursday": [
+          {
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "friday": [
+          {
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "saturday": []
+      },
+      "surgery": {
+        "sunday": [],
+        "monday": [
+          {
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "tuesday": [
+          {
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "wednesday": [
+          {
+            "opens": "08:00",
+            "closes": "19:30"
+          }
+        ],
+        "thursday": [
+          {
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "friday": [
+          {
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "saturday": []
+      }
+    },
+    "gpCounts": {
+      "male": 2,
+      "female": 1
+    },
+    "doctors": [
+      "Dr Richard Stewart Murphy",
+      "Dr William Gary Scott",
+      "Dr Pauline Brotton"
+    ],
+    "acceptingNewPatients": true,
+    "facilities": {
+      "parking": [
+        {
+          "name": "Car Parking",
+          "exists": "Yes"
+        },
+        {
+          "name": "Cycle parking",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "Disabled parking",
+          "exists": "NotSpecified"
+        }
+      ],
+      "accessibility": [
+        {
+          "name": "Step free access",
+          "exists": "Yes"
+        },
+        {
+          "name": "Wheelchair access",
+          "exists": "Yes"
+        },
+        {
+          "name": "Disabled WC",
+          "exists": "Yes"
+        },
+        {
+          "name": "Braille translation service",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "Disabled parking",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "Induction loop",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "RNID typetalk",
+          "exists": "NotSpecified"
+        },
+        {
+          "name": "Signing service available",
+          "exists": "NotSpecified"
+        }
+      ]
+    },
+    "services": {
+      "epsEnabled": true,
+      "moreInformation": "Other services offered at this practice: ECG facilities, minor surgical procedures, including freezing warts with liquid nitrogen. The practice has its own physiotherapist, dietician, chiropodist and counsellor",
+      "entries": [
+        {
+          "title": "Asthma clinic",
+          "code": "SRV0280",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "Woodlands Surgery"
+        },
+        {
+          "title": "Child health and development",
+          "code": "SRV0309",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "Woodlands Surgery"
+        },
+        {
+          "title": "Contraceptive injections, implants and coils",
+          "code": "SRV0294",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "Woodlands Surgery"
+        },
+        {
+          "title": "Minor surgery (for example removing moles)",
+          "code": "SRV0298",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "Woodlands Surgery"
+        },
+        {
+          "title": "Health checks for people with learning disabilities",
+          "code": "SRV0492",
+          "availabilityTimes": "",
+          "introduction": "",
+          "gpReferralRequired": false,
+          "deliverer": "Woodlands Surgery"
+        }
+      ]
+    },
+    "onlineServices": {
+      "appointments": {
+        "supplier": "TPP",
+        "url": "https://systmonline.tpp-uk.com/Login?PracticeId=A81004"
+      },
+      "repeatPrescriptions": {
+        "supplier": "TPP",
+        "url": "https://systmonline.tpp-uk.com/Login?PracticeId=A81004"
+      },
+      "codedRecords": {
+        "supplier": "TPP",
+        "url": "https://systmonline.tpp-uk.com/Login?PracticeId=A81004"
+      }
+    },
+    "searchSurgery": "6 woodlands road middlesbrough surgery ts1 3be",
+    "searchDoctors": "richard stewart murphy william gary scott pauline brotton",
+    "searchName": "woodlands surgery"
+  }]

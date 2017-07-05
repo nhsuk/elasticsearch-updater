@@ -1,0 +1,58 @@
+{
+  "name": "elasticsearch-updater",
+  "version": "1.0.0",
+  "description": "Updates an Elasticsearch instance from a JSON file",
+  "main": "scheduler.js",
+  "repository": "https://github.com/nhsuk/elasticsearch-updater.git",
+  "author": "Mark Harrop",
+  "license": "MIT",
+  "scripts": {
+    "check-coverage": "istanbul check-coverage --config .istanbul.yml",
+    "generate-coverage": "yarn run istanbul -- cover _mocha -- --recursive",
+    "git-hook": "yarn run lint",
+    "istanbul": "NODE_ENV=test istanbul",
+    "lint": "eslint --ext .js,.json .",
+    "postrewrite": "yarn run git-hook",
+    "precommit": "yarn run git-hook",
+    "prepush": "yarn run git-hook",
+    "snyk": "snyk",
+    "snyk-travis": "yarn run snyk -- test --org=nhsuk && yarn run snyk -- monitor --org=nhsuk",
+    "start": "node app.js",
+    "test": "NODE_ENV=test mocha --recursive test",
+    "test-unit": "NODE_ENV=test mocha --recursive test/unit",
+    "test-integration": "NODE_ENV=test mocha --recursive test/integration",
+    "test-watch": "yarn run test -- --watch --reporter min",
+    "test-watch-unit": "yarn run test-unit -- --watch --reporter min",
+    "travis": "yarn run lint && yarn run generate-coverage && yarn run check-coverage && yarn run upload-coverage-coveralls && yarn run snyk-travis",
+    "upload-coverage-coveralls": "cat ./coverage/lcov.info | coveralls"
+  },
+  "keywords": [
+    "elasticsearch",
+    "nhsuk"
+  ],
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "coveralls": "^2.13.1",
+    "eslint": "^3.17.1",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-nhsuk": "^0.2.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-mocha": "^4.10.1",
+    "eslint-plugin-react": "^7.1.0",
+    "eslint-watch": "^3.1.1",
+    "husky": "^0.13.4",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^3.4.2",
+    "nock": "^9.0.13",
+    "snyk": "^1.34.4"
+  },
+  "dependencies": {
+    "elasticsearch": "^13.2.0",
+    "moment": "^2.18.1",
+    "nhsuk-bunyan-logger": "^1.3.0",
+    "node-schedule": "^1.2.3",
+    "require-environment-variables": "^1.1.2"
+  }
+}
