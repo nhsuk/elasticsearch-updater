@@ -13,10 +13,7 @@ async function runUpdater() {
   await updateElasticSearch();
 
   log.info(`Scheduling Elasticsearch update with rule '${config.updateSchedule}'`);
-  schedule.scheduleJob(config.updateSchedule, () => {
-    // this is an async function, but await is not allowed within a lambda expression
-    updateElasticSearch();
-  });
+  schedule.scheduleJob(config.updateSchedule, updateElasticSearch);
 }
 
 runUpdater();

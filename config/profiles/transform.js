@@ -6,8 +6,6 @@ function sanitiseDataRecord(record) {
   /* eslint-disable no-underscore-dangle*/
   /* eslint-disable no-param-reassign*/
   if (record._id) {
-    // not sure this is needed
-    // record.id = record._id;
     delete record._id;
   }
   if (record.doctors) {
