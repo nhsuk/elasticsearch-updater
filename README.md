@@ -1,5 +1,7 @@
 # Scheduled service to load data from a URL into Elasticsearch
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/nhsuk/elasticsearch-updater.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/nhsuk/elasticsearch-updater.svg?branch=master)](https://travis-ci.org/nhsuk/elasticsearch-updater)
 [![Coverage Status](https://coveralls.io/repos/github/nhsuk/elasticsearch-updater/badge.svg?branch=master)](https://coveralls.io/github/nhsuk/elasticsearch-updater?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/nhsuk/elasticsearch-updater/badge.svg)](https://snyk.io/test/github/nhsuk/elasticsearch-updater)
