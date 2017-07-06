@@ -1,7 +1,6 @@
 # Scheduled service to load data from a URL into Elasticsearch
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/nhsuk/elasticsearch-updater.svg)](https://greenkeeper.io/)
-
 [![Build Status](https://travis-ci.org/nhsuk/elasticsearch-updater.svg?branch=master)](https://travis-ci.org/nhsuk/elasticsearch-updater)
 [![Coverage Status](https://coveralls.io/repos/github/nhsuk/elasticsearch-updater/badge.svg?branch=master)](https://coveralls.io/github/nhsuk/elasticsearch-updater?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/nhsuk/elasticsearch-updater/badge.svg)](https://snyk.io/test/github/nhsuk/elasticsearch-updater)
@@ -13,7 +12,7 @@ it is available, is valid JSON, and if the total count has not dropped by a sign
 
 The destination instance is specified in the `ES_HOST` and `ES_PORT` variables.
 
-As bespoke code is required to create mappings and perform tranforms, Elasticsearch configurations must be provided within the `elasticsearch-updater` repository. ES configurations are stored on the `config/esConfig` object, and can be selected with the `ES_INDEX` parameter.
+As bespoke code is required to create mappings and perform transforms, Elasticsearch configurations must be provided within the `elasticsearch-updater` repository. ES configurations are stored on the `config/esConfig` object, and can be selected with the `ES_INDEX` parameter.
 Mappings and transforms for each available index are held in a folder with the same name as the configuration, i.e. `profiles/mapping.json`.
 
 An ES configuration must provide a `type`, an `idKey`, a `mapping definition` and an optional `transform` function.
@@ -22,7 +21,7 @@ The `type` is the index type used in the mapping, and the `idKey` identifies the
 The file download and Elasticsearch update will run on startup, then on a daily schedule while the container continues to run.
 
 The time of day defaults to 7am, and can be changed via the `UPDATE_SCHEDULE` environment variable.
-The schedule is run using `node-schedule` which uses a cronlike syntax. Further details on node-schedule available [here](https://www.npmjs.com/package/node-schedule)
+The schedule is run using `node-schedule` which uses a Cron-like syntax. Further details on node-schedule available [here](https://www.npmjs.com/package/node-schedule)
 Note: the container time is GMT and does not take account of daylight saving, you may need to subtract an hour from the time if it is currently BST.
 
 When updating the Elasticsearch instance the new data will be inserted into a date stamped index and validated against the
@@ -38,16 +37,16 @@ Environment variables are expected to be managed by the environment in which
 the application is being run. This is best practice as described by
 [twelve-factor](https://12factor.net/config).
 
-| Variable                         | Description                                                         | Default               | Required |
-|:---------------------------------|:--------------------------------------------------------------------|-----------------------|:---------|
-| `NODE_ENV`                       | node environment                                                    | development           |          |
-| `LOG_LEVEL`                      | [log level](https://github.com/trentm/node-bunyan#levels)           | Depends on `NODE_ENV` |          |
-| `JSON_FILE_URL`                  | publicly available URL of JSON data                                 |                       | yes      |
-| `ES_HOST`                        | host name of Elasticsearch server                                   |                       | yes      |
-| `ES_INDEX`                       | Elasticsearch configuration to read, currently only 'profiles' available |   profiles       |          |
-| `ES_PORT`                        | port of Elasticsearch server                                        | 27017                 |          |
-| `CHANGE_THRESHOLD`               | factor the data count can change by before erroring                 | 0.99                  |          |
-| `UPDATE_SCHEDULE`                | time of day to run the update                                       | 0 7 * * *  (7 am)     |          |
+| Variable                           | Description                                                              | Default                 | Required   |
+| :--------------------------------- | :--------------------------------------------------------------------    | :---------------------- | :--------- |
+| `NODE_ENV`                         | node environment                                                         | development             |            |
+| `LOG_LEVEL`                        | [log level](https://github.com/trentm/node-bunyan#levels)                | Depends on `NODE_ENV`   |            |
+| `JSON_FILE_URL`                    | publicly available URL of JSON data                                      |                         | yes        |
+| `ES_HOST`                          | host name of Elasticsearch server                                        |                         | yes        |
+| `ES_INDEX`                         | Elasticsearch configuration to read, currently only 'profiles' available | profiles                |            |
+| `ES_PORT`                          | port of Elasticsearch server                                             | 27017                   |            |
+| `CHANGE_THRESHOLD`                 | factor the data count can change by before erroring                      | 0.99                    |            |
+| `UPDATE_SCHEDULE`                  | time of day to run the update                                            | 0 7 * * *  (7 am)       |            |
 
 ## Architecture Decision Records
  
