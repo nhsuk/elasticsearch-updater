@@ -11,6 +11,9 @@ function sanitiseDataRecord(record) {
   if (record.doctors) {
     record.doctors = record.doctors.map(toNameObject);
   }
+  if (record.address) {
+    record.alternativeName = record.address.addressLines[0];
+  }
   /* eslint-enable no-underscore-dangle */
   /* eslint-enable no-param-reassign*/
   return record;
