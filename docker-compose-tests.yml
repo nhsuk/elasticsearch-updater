@@ -11,7 +11,6 @@ services:
       - elasticsearch-updater-tests-node_modules:/code/node_modules
     environment:
       NODE_ENV: test
-      SNYK_TOKEN: ${SNYK_TOKEN}
     links:
     - elasticsearch:es
 
@@ -27,7 +26,6 @@ services:
     environment:
       COVERALLS_REPO_TOKEN: ${COVERALLS_REPO_TOKEN}
       NODE_ENV: test
-      SNYK_TOKEN: ${SNYK_TOKEN}
       TRAVIS: ${TRAVIS}
       TRAVIS_BRANCH: ${TRAVIS_BRANCH}
       TRAVIS_COMMIT: ${TRAVIS_COMMIT}
