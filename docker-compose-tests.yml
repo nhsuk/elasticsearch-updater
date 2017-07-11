@@ -16,11 +16,11 @@ services:
     - elasticsearch:es
 
 
-  travis-tests:
+  test-ci:
     extends:
       file: docker-compose.yml
       service: base-app
-    command: yarn run travis
+    command: yarn run test-ci
     user: root
     volumes:
       - elasticsearch-updater-tests-node_modules:/code/node_modules
@@ -38,7 +38,7 @@ services:
   elasticsearch:
     image: "nhsuk/profiles-db-elastic:${profiles_db_elastic_docker_image_tag-0.4.0}"
     ports:
-      - 9200:9200 
+      - 9200:9200
 
 volumes:
   elasticsearch-updater-tests-node_modules:

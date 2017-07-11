@@ -7,8 +7,9 @@
   "author": "Mark Harrop",
   "license": "MIT",
   "scripts": {
-    "check-coverage": "istanbul check-coverage --config .istanbul.yml",
-    "generate-coverage": "yarn istanbul -- cover _mocha -- --recursive",
+    "coverage-check": "istanbul check-coverage --config .istanbul.yml",
+    "coverage-generate": "yarn istanbul -- cover _mocha -- --recursive",
+    "coverage-upload-coveralls": "cat ./coverage/lcov.info | coveralls",
     "git-hook": "yarn lint",
     "istanbul": "NODE_ENV=test istanbul",
     "lint": "eslint --ext .js,.json .",
@@ -19,12 +20,11 @@
     "snyk-travis": "yarn snyk -- test --org=nhsuk && yarn snyk -- monitor --org=nhsuk",
     "start": "node app.js",
     "test": "NODE_ENV=test mocha --recursive test",
+    "test-ci": "yarn lint && yarn coverage-generate && yarn coverage-check && yarn coverage-upload-coveralls && yarn snyk-travis",
     "test-unit": "NODE_ENV=test mocha --recursive test/unit",
     "test-integration": "NODE_ENV=test mocha --recursive test/integration",
     "test-watch": "yarn test -- --watch --reporter min",
-    "test-watch-unit": "yarn test-unit -- --watch --reporter min",
-    "travis": "yarn lint && yarn generate-coverage && yarn check-coverage && yarn upload-coverage-coveralls && yarn snyk-travis",
-    "upload-coverage-coveralls": "cat ./coverage/lcov.info | coveralls"
+    "test-watch-unit": "yarn test-unit -- --watch --reporter min"
   },
   "keywords": [
     "elasticsearch",
