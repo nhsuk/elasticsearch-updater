@@ -5,10 +5,10 @@ services:
     image: nhsuk/elasticsearch-updater:${DOCKER_IMAGE_TAG}
     environment:
       NODE_ENV: ${NODE_ENV}
-      JSON_FILE_URL: ${JSON_FILE_URL}
-      ES_HOST: profiles-db-elastic.profiles-db-elastic
+      JSON_FILE_URL: ${JSON_FILE_URL_PROFILES}
+      ES_HOST: ${ES_HOST_PROFILES}
       ES_INDEX: profiles
-      CHANGE_THRESHOLD: ${CHANGE_THRESHOLD}
-      UPDATE_SCHEDULE: ${UPDATE_SCHEDULE}
+      CHANGE_THRESHOLD: ${CHANGE_THRESHOLD_PROFILES}
+      UPDATE_SCHEDULE: ${UPDATE_SCHEDULE_PROFILES}
     labels:
       io.rancher.container.pull_image: always
