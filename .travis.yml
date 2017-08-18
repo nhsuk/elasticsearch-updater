@@ -14,7 +14,7 @@ script:
   - docker-compose -f docker-compose-tests.yml build test-ci
   - docker-compose -f docker-compose-tests.yml run test-ci
 
-after_success: bash ./scripts/ci-deployment/deploy.sh
+after_success: bash ./scripts/deploy.sh
 
 after_script:
   - greenkeeper-lockfile-upload
