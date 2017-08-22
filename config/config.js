@@ -8,7 +8,7 @@ const config = {
   index: process.env.ES_INDEX || 'profiles',
   inputDir: './input',
   // percentage the records can be of previous before erroring
-  threshold: process.env.CHANGE_THRESHOLD || 0.99,
+  threshold: Number(process.env.CHANGE_THRESHOLD) || 0.99,
   // cron style job, default to 7am
   updateSchedule: process.env.UPDATE_SCHEDULE || '0 7 * * *',
 };
