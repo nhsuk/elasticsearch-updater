@@ -1,0 +1,44 @@
+{
+  "settings":{
+  },
+  "mappings": {
+    "pharmacy": {
+      "properties": {
+        "openingTimes": {
+          "enabled": false
+        },
+        "openingTimesAsOffset": {
+          "type" : "nested",
+          "properties": {
+            "opens" : { "type" : "integer" },
+            "closes": { "type" : "integer" }
+          }
+        },
+        "openingTimesAlterationsAsOffset": {
+          "type" : "nested",
+          "properties": {
+            "date" : { "type" : "date" },
+            "opens" : { "type" : "integer" },
+            "closes": { "type" : "integer" }
+          }
+        },
+        "location" : {
+          "properties" : {
+            "coordinates" : {
+              "type" : "geo_point"
+            }
+          }
+        },
+        "name": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        }
+      }
+    }
+  }
+}

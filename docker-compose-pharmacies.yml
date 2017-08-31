@@ -10,9 +10,9 @@ services:
     environment:
       NODE_ENV: ${NODE_ENV}
       UPDATE_SCHEDULE: ${UPDATE_SCHEDULE}
-      JSON_FILE_URL: https://nhsukgpdataetl.blob.core.windows.net/etl-output/gp-data-merged.json
+      JSON_FILE_URL: https://nhsukpharmacydataetl.blob.core.windows.net/etl-output/pharmacy-data.json
       ES_HOST: es
-      ES_INDEX: profiles
+      ES_INDEX: pharmacies
       CHANGE_THRESHOLD: '0.94'
 
   elasticsearch-updater:
@@ -26,7 +26,7 @@ services:
   elasticsearch:
     image: "nhsuk/profiles-db-elastic:${profiles_db_elastic_docker_image_tag-0.4.0}"
     ports:
-      - 9200:9200 
+      - 9200:9200
 
 volumes:
   elasticsearch-updater-node_modules:
