@@ -1,43 +1,6 @@
 
 const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
 
-/*
-int getMinutesOffset(int dayCount, String time) {
-  return 
-     (1440 * dayCount) +
-     (Integer.parseInt(time.substring(0,2)) * 60) +
-     Integer.parseInt(time.substring(3,5));
-}
-
-String[] days = new String[] 
-{ 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday' } ;
-ArrayList openingTimes = [];
-if (ctx.openingTimes != null && ctx.openingTimes.general != null) {
-  for (int d; d < days.length; d++) {
-    String day = days[d];
-    for (int i; i < ctx.openingTimes.general[day].length; i++) {
-      int opens = getMinutesOffset(d, ctx.openingTimes.general[day][i].opens);
-      int closes = getMinutesOffset(d, ctx.openingTimes.general[day][i].closes);
-      openingTimes.add([ 'opens': opens, 'closes': closes ] );
-    }
-  }
-}
-ctx['openingTimesAsOffset'] = openingTimes;
-
-ArrayList alterations = [];
-if (ctx.openingTimes != null && ctx.openingTimes.alterations != null) {
-  for (e in ctx.openingTimes.alterations.entrySet()) {
-    for (int i; i < e.value.length; i++) {
-      int opens = getMinutesOffset(0, e.value[i].opens);
-      int closes = getMinutesOffset(0, e.value[i].closes);
-      alterations.add([ 'date': e.key, 'opens': opens, 'closes': closes ] );
-    }
-  }
-}
-ctx['openingTimesAlterationsAsOffset'] = alterations;
-ctx['openingTimes2'] = openingTimes;
-
-*/
 function getMinutesOffset(dayCount, time) {
   return (1440 * dayCount) +
     (Number(time.substring(0, 2)) * 60) +
@@ -54,18 +17,45 @@ function timesToMinutesSinceSunday(day, index) {
   });
 }
 
+function altTimesToMinutesSinceMidnight(date, sessions) {
+  // eslint-disable-next-line
+  return sessions.map(session => {
+    return {
+      date,
+      opens: getMinutesOffset(0, session.opens),
+      closes: getMinutesOffset(0, session.closes)
+    };
+  });
+}
+
 function flattenArray(arrayOfArrays) {
   return arrayOfArrays.reduce((a, b) => a.concat(b), []);
 }
 
 function getTimesAsOffset(section) {
-  return flattenArray(days.map((day, index) => timesToMinutesSinceSunday(section[day], index)));
+  if (section) {
+    return flattenArray(days.map((day, index) => timesToMinutesSinceSunday(section[day], index)));
+  }
+  return [];
+}
+
+function getAltTimesAsOffset(section) {
+  const altTimes = [];
+  // simple object we've created, no need to worry about extra keys
+  // eslint-disable-next-line 
+  for (const date in section) {
+    const sessionTimes = altTimesToMinutesSinceMidnight(date, section[date]);
+    altTimes.push(sessionTimes);
+  }
+  return flattenArray(altTimes);
 }
 
 function addOffsetTimes(record) {
-  if (record.openingTimes && record.openingTimes.general) {
+  if (record.openingTimes) {
     // eslint-disable-next-line no-param-reassign
     record.openingTimesAsOffset = getTimesAsOffset(record.openingTimes.general);
+    // eslint-disable-next-line no-param-reassign
+    record.openingTimesAlterationsAsOffset = getAltTimesAsOffset(record.openingTimes.alterations);
   }
   return record;
 }
