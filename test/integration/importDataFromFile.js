@@ -38,8 +38,7 @@ describe('importDataFromFile', function test() {
       // Elasticsearch count doesn't updste immediately, add a short wait before running next update
       setTimeout(() => runSecondImport(resolve, reject, threshold90pc, expectedCount), pauseTime);
     });
-  }
-  );
+  });
 
   it('importDataFromFile should update if count drops is above the threshold', async () => {
     await importDataFromFile('./test/resources/raw-data.json', indexName, 0.9);
@@ -49,6 +48,5 @@ describe('importDataFromFile', function test() {
       // Elasticsearch count doesn't updste immediately, add a short wait before running next update
       setTimeout(() => runSecondImport(resolve, reject, threshold70pc, expectedCount), pauseTime);
     });
-  }
-  );
+  });
 });
