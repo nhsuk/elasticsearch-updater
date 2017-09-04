@@ -3,8 +3,8 @@ function toNameObject(name) {
 }
 
 function sanitiseDataRecord(record) {
-  /* eslint-disable no-underscore-dangle*/
-  /* eslint-disable no-param-reassign*/
+  /* eslint-disable no-underscore-dangle */
+  /* eslint-disable no-param-reassign */
   if (record._id) {
     delete record._id;
   }
@@ -15,7 +15,7 @@ function sanitiseDataRecord(record) {
     record.alternativeName = record.address.addressLines[0];
   }
   /* eslint-enable no-underscore-dangle */
-  /* eslint-enable no-param-reassign*/
+  /* eslint-enable no-param-reassign */
   return record;
 }
 
