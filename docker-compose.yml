@@ -15,11 +15,25 @@ services:
       ES_INDEX: profiles
       CHANGE_THRESHOLD: '0.94'
 
-  elasticsearch-updater:
+  elasticsearch-updater-profiles:
     extends:
       service: base-app
     volumes:
-      - elasticsearch-updater-node_modules:/code/node_modules
+      - elasticsearch-updater-profiles-node_modules:/code/node_modules
+    environment:
+      JSON_FILE_URL: https://nhsukgpdataetl.blob.core.windows.net/etl-output/gp-data-merged.json
+      ES_INDEX: profiles
+    links:
+    - elasticsearch:es
+
+  elasticsearch-updater-pharmacies:
+    extends:
+      service: base-app
+    volumes:
+      - elasticsearch-updater-pharmacies-node_modules:/code/node_modules
+    environment:
+      JSON_FILE_URL: https://nhsukpharmacydataetl.blob.core.windows.net/etl-output/pharmacy-data.json
+      ES_INDEX: pharmacies
     links:
     - elasticsearch:es
 
@@ -29,4 +43,5 @@ services:
       - 9200:9200 
 
 volumes:
-  elasticsearch-updater-node_modules:
+  elasticsearch-updater-profiles-node_modules:
+  elasticsearch-updater-pharmacies-node_modules:
