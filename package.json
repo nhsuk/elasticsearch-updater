@@ -49,6 +49,7 @@
     "moment": "^2.18.1",
     "nhsuk-bunyan-logger": "^1.4.1",
     "node-schedule": "^1.2.4",
-    "require-environment-variables": "^1.1.2"
+    "require-environment-variables": "^1.1.2",
+    "wait-until": "^0.0.2"
   }
 }

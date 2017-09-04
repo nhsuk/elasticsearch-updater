@@ -3423,6 +3423,10 @@ verror@1.10.0:
     core-util-is "1.0.2"
     extsprintf "^1.2.0"
 
+wait-until@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/wait-until/-/wait-until-0.0.2.tgz#7a8abaef5590d970fd44697d436b5761e3eaedbe"
+
 which-module@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/which-module/-/which-module-1.0.0.tgz#bba63ca861948994ff307736089e3b96026c2a4f"
