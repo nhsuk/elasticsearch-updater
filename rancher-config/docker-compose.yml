@@ -5,6 +5,8 @@ services:
     image: nhsuk/elasticsearch-updater:${DOCKER_IMAGE_TAG}
     environment:
       NODE_ENV: ${NODE_ENV}
+      POLLING_INTERVAL: ${POLLING_INTERVAL}
+      MAX_TIMES: ${MAX_TIMES}
       JSON_FILE_URL: ${JSON_FILE_URL_PROFILES}
       ES_HOST: ${ES_HOST_PROFILES}
       ES_INDEX: profiles
