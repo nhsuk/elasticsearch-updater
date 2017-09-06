@@ -1,8 +1,12 @@
-
 const days = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'];
+const minutesInADay = 1440;
+
+function flattenArray(arrayOfArrays) {
+  return arrayOfArrays.reduce((a, b) => a.concat(b), []);
+}
 
 function getMinutesOffset(dayCount, time) {
-  return (1440 * dayCount) +
+  return (minutesInADay * dayCount) +
     (Number(time.substring(0, 2)) * 60) +
     Number(time.substring(3, 5));
 }
@@ -28,10 +32,6 @@ function altTimesToMinutesSinceMidnight(date, sessions) {
   });
 }
 
-function flattenArray(arrayOfArrays) {
-  return arrayOfArrays.reduce((a, b) => a.concat(b), []);
-}
-
 function getTimesAsOffset(section) {
   if (section) {
     return flattenArray(days.map((day, index) => timesToMinutesSinceSunday(section[day], index)));
@@ -41,8 +41,9 @@ function getTimesAsOffset(section) {
 
 function getAltTimesAsOffset(section) {
   const altTimes = [];
-  // simple object we've created, no need to worry about extra keys
-  // eslint-disable-next-line 
+  // 'section' is simple object we've created
+  //  no need to worry about extra keys, use 'in' rather than object keys
+  // eslint-disable-next-line
   for (const date in section) {
     const sessionTimes = altTimesToMinutesSinceMidnight(date, section[date]);
     altTimes.push(sessionTimes);
@@ -61,10 +62,7 @@ function addOffsetTimes(record) {
 }
 
 function transform(data) {
-  if (data) {
-    return data.map(addOffsetTimes);
-  }
-  return data;
+  return data && data.map(addOffsetTimes);
 }
 
 module.exports = transform;
