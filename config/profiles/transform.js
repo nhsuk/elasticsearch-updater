@@ -20,10 +20,7 @@ function sanitiseDataRecord(record) {
 }
 
 function transform(data) {
-  if (data) {
-    return data.map(sanitiseDataRecord);
-  }
-  return data;
+  return data && data.map(sanitiseDataRecord);
 }
 
 module.exports = transform;

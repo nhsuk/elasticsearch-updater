@@ -4,32 +4,15 @@ const esClient = require('../../lib/es/esClient');
 const sampleData = require('../resources/sample-data');
 
 const expect = chai.expect;
-let startTime;
 const maxWaitTime = 1 * 60 * 1000;
 const indexName = 'profiles-test';
 const aliasName = 'profiles-alias';
-
-function serverReady() {
-  // check if alive by deleting non existent index
-  return esClient.delete('nosuchindex').then(() => true).catch(() => false);
-}
-
-function waitForEsToStart(done) {
-  serverReady().then((res) => {
-    if (res || (new Date() - startTime) > maxWaitTime) {
-      done();
-    } else {
-      setTimeout(() => waitForEsToStart(done), 3000);
-    }
-  });
-}
 
 describe('Elasticsearch Client', function test() {
   this.timeout(maxWaitTime);
 
   before((done) => {
-    startTime = new Date();
-    waitForEsToStart(done);
+    esClient.waitForHealthyEs().then(done);
   });
 
   beforeEach((done) => {

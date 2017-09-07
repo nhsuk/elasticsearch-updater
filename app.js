@@ -13,7 +13,7 @@ async function runUpdater() {
   await updateElasticSearch();
 
   log.info(`Scheduling Elasticsearch update with rule '${config.updateSchedule}'`);
-  schedule.scheduleJob(config.updateSchedule, updateElasticSearch);
+  schedule.scheduleJob(config.updateSchedule, () => updateElasticSearch());
 }
 
 runUpdater();

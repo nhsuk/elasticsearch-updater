@@ -1,5 +1,7 @@
 const profilesMapping = require('./profiles/mapping');
 const profilesTransform = require('./profiles/transform');
+const pharmaciesMapping = require('./pharmacies/mapping');
+const pharmaciesTransform = require('./pharmacies/transform');
 
 const esConfig = {
   index: process.env.ES_INDEX || 'profiles',
@@ -12,6 +14,12 @@ const esConfig = {
       idKey: 'choicesId',
       mapping: profilesMapping,
       transform: profilesTransform,
+    },
+    pharmacies: {
+      type: 'pharmacy',
+      idKey: 'identifier',
+      mapping: pharmaciesMapping,
+      transform: pharmaciesTransform,
     }
   }
 };

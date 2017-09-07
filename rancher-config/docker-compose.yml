@@ -4,11 +4,23 @@ services:
   elasticsearch-updater-profiles:
     image: nhsuk/elasticsearch-updater:${DOCKER_IMAGE_TAG}
     environment:
-      NODE_ENV: ${NODE_ENV}
+      NODE_ENV: production
       JSON_FILE_URL: ${JSON_FILE_URL_PROFILES}
       ES_HOST: ${ES_HOST_PROFILES}
       ES_INDEX: profiles
       CHANGE_THRESHOLD: ${CHANGE_THRESHOLD_PROFILES}
       UPDATE_SCHEDULE: ${UPDATE_SCHEDULE_PROFILES}
+    labels:
+      io.rancher.container.pull_image: always
+
+  elasticsearch-updater-pharmacies:
+    image: nhsuk/elasticsearch-updater:${DOCKER_IMAGE_TAG}
+    environment:
+      NODE_ENV: production
+      JSON_FILE_URL: ${JSON_FILE_URL_PHARMACIES}
+      ES_HOST: ${ES_HOST_PHARMACIES}
+      ES_INDEX: pharmacies
+      CHANGE_THRESHOLD: ${CHANGE_THRESHOLD_PHARMACIES}
+      UPDATE_SCHEDULE: ${UPDATE_SCHEDULE_PHARMACIES}
     labels:
       io.rancher.container.pull_image: always
