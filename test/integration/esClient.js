@@ -12,7 +12,7 @@ describe('Elasticsearch Client', function test() {
   this.timeout(maxWaitTime);
 
   before((done) => {
-    esClient.waitForEsToStart().then(done);
+    esClient.waitForHealthyEs().then(done);
   });
 
   beforeEach((done) => {

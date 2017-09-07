@@ -6,9 +6,8 @@ function flattenArray(arrayOfArrays) {
 }
 
 function getMinutesOffset(dayCount, time) {
-  return (minutesInADay * dayCount) +
-    (Number(time.substring(0, 2)) * 60) +
-    Number(time.substring(3, 5));
+  const [hours, minutes] = time.split(':').map(Number);
+  return (minutesInADay * dayCount) + (hours * 60) + minutes;
 }
 
 function timesToMinutesSinceSunday(day, index) {
