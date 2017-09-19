@@ -25,6 +25,12 @@
   "mappings": {
     "gps": {
       "properties": {
+        "odsCode": {
+          "type":  "keyword"
+        },
+        "choicesId": {
+          "type":  "integer"
+        },
         "openingTimes": {
           "enabled": false
         },
