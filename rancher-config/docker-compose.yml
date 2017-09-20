@@ -12,6 +12,17 @@ services:
       UPDATE_SCHEDULE: ${UPDATE_SCHEDULE_PROFILES}
     labels:
       io.rancher.container.pull_image: always
+    logging:
+      driver: splunk
+      options:
+        splunk-url: ${SPLUNK_HEC_URL}
+        splunk-token: ${SPLUNK_HEC_TOKEN}
+        splunk-insecureskipverify: "true"
+        splunk-sourcetype: docker
+        splunk-source: elasticsearch-updater-profiles
+        splunk-verify-connection: "false"
+        tag: "{{`{{.ImageName}} {{.Name}} {{.FullID}}`}}"
+        splunk-format: json
 
   elasticsearch-updater-pharmacies:
     image: nhsuk/elasticsearch-updater:${DOCKER_IMAGE_TAG}
@@ -24,3 +35,14 @@ services:
       UPDATE_SCHEDULE: ${UPDATE_SCHEDULE_PHARMACIES}
     labels:
       io.rancher.container.pull_image: always
+    logging:
+      driver: splunk
+      options:
+        splunk-url: ${SPLUNK_HEC_URL}
+        splunk-token: ${SPLUNK_HEC_TOKEN}
+        splunk-insecureskipverify: "true"
+        splunk-sourcetype: docker
+        splunk-source: elasticsearch-updater-pharmacy
+        splunk-verify-connection: "false"
+        tag: "{{`{{.ImageName}} {{.Name}} {{.FullID}}`}}"
+        splunk-format: json
