@@ -1,7 +1,8 @@
-0.3.4 / TBC
+0.4.0 / TBC
 ==================
 - Add CHANGELOG
 - Add mapping type for odsCode and choicesId
+- Update npm dependencies
 
 0.3.3 / 2017-09-11
 ==================
@@ -20,7 +21,7 @@
 0.3.0 / 2017-08-18
 ==================
 - Expose ES_HOST_PROFILES as environment variable
-- add _PROFILES suffix to env vars to allow multiple updaters to run in stack
+- add `_PROFILES` suffix to env vars to allow multiple updaters to run in stack
 
 0.2.0 / 2017-07-13
 ==================
@@ -33,4 +34,4 @@ This is given a high priority in search results along with the name and doctors.
 
 0.1.0 / 2017-07-05
 ==================
-- nitial release capable of updating a profiles Elasticsearch instance.
+- Initial release capable of updating a profiles Elasticsearch instance.
