@@ -1,8 +1,9 @@
-0.4.0 / TBC
+0.4.0 / 2017-10-26
 ==================
+- Upgrade Docker container to `node:8.8.0-alpine`
+- Update npm dependencies
 - Add CHANGELOG
 - Add mapping type for odsCode and choicesId
-- Update npm dependencies
 
 0.3.3 / 2017-09-11
 ==================
