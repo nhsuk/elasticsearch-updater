@@ -1,6 +1,6 @@
 {
   "name": "elasticsearch-updater",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Updates an Elasticsearch instance from a JSON file",
   "main": "scheduler.js",
   "repository": "https://github.com/nhsuk/elasticsearch-updater.git",
@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "coverage-check": "istanbul check-coverage --config .istanbul.yml",
-    "coverage-generate": "yarn istanbul -- cover _mocha -- --recursive",
+    "coverage-generate": "yarn istanbul cover -- _mocha -- --recursive",
     "coverage-upload-coveralls": "cat ./coverage/lcov.info | coveralls",
     "git-hook": "yarn lint",
     "istanbul": "NODE_ENV=test istanbul",
@@ -21,8 +21,8 @@
     "test-ci": "yarn lint && yarn coverage-generate && yarn coverage-check && yarn coverage-upload-coveralls",
     "test-unit": "NODE_ENV=test mocha --recursive test/unit",
     "test-integration": "NODE_ENV=test mocha --recursive test/integration",
-    "test-watch": "yarn test -- --watch --reporter min",
-    "test-watch-unit": "yarn test-unit -- --watch --reporter min"
+    "test-watch": "yarn test --watch --reporter min",
+    "test-watch-unit": "yarn test-unit --watch --reporter min"
   },
   "keywords": [
     "elasticsearch",
