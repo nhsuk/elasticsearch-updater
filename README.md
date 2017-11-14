@@ -46,6 +46,8 @@ the application is being run. This is best practice as described by
 | `ES_HOST`                          | host name of Elasticsearch server                                        |                         | yes        |
 | `ES_INDEX`                         | Elasticsearch configuration to read, currently only 'profiles' available | profiles                |            |
 | `ES_PORT`                          | port of Elasticsearch server                                             | 27017                   |            |
+| `ES_REPLICAS`                      | Number of replica for the index                                          | 2                       |            |
+| `ES_SHARDS`                        | Number of shards for the index                                           | 5                       |            |
 | `CHANGE_THRESHOLD`                 | factor the data count can change by before erroring                      | 0.99                    |            |
 | `UPDATE_SCHEDULE`                  | time of day to run the update                                            | 0 7 * * *  (7 am)       |            |
 

@@ -6,7 +6,9 @@ const pharmaciesTransform = require('./pharmacies/transform');
 const esConfig = {
   index: process.env.ES_INDEX || 'profiles',
   host: process.env.ES_HOST,
-  port: process.env.ES_PORT || 9200,
+  port: Number(process.env.ES_PORT) || 9200,
+  noOfReplicas: Number(process.env.ES_REPLICAS) || 2,
+  noOfShards: Number(process.env.ES_SHARDS) || 5,
   // hold mappings and transforms on settings to allow adding pharmacy config in future
   settings: {
     profiles: {
@@ -35,8 +37,17 @@ function getConnectionParams() {
   return { host: `${esConfig.host}:${esConfig.port}` };
 }
 
-function getMapping() {
-  return getNested(esConfig, `settings.${esConfig.index}.mapping`);
+function getIndexSettings() {
+  return {
+    number_of_shards: esConfig.noOfShards,
+    number_of_replicas: esConfig.noOfReplicas
+  };
+}
+
+function getBody() {
+  const body = getNested(esConfig, `settings.${esConfig.index}.mapping`);
+  body.settings.index = getIndexSettings();
+  return body;
 }
 
 function getTransform() {
@@ -52,7 +63,7 @@ function getType() {
 }
 
 function validateConfig() {
-  if (!getMapping() || !getIdKey()) {
+  if (!getBody() || !getIdKey()) {
     throw new Error(`invalid config '${esConfig.index}', no mapping or id Key defined`);
   }
 }
@@ -61,7 +72,7 @@ validateConfig();
 
 module.exports = {
   getConnectionParams,
-  getMapping,
+  getBody,
   getTransform,
   getIdKey,
   getType,
