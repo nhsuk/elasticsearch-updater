@@ -1,3 +1,7 @@
+0.5.1 / 2017-11-21
+==================
+- Allow shard and replica numbers to be set on index creation
+
 0.5.0 / 2017-11-16
 ==================
 - Upgrade Docker container to `node:8.9.1-alpine`
