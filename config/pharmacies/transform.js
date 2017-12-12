@@ -21,6 +21,10 @@ function timesToMinutesSinceSunday(day, index) {
 }
 
 function altTimesToMinutesSinceMidnight(date, sessions) {
+  if (sessions.length === 0) {
+    // mark as closed all day
+    return { date, opens: undefined, closes: undefined };
+  }
   // eslint-disable-next-line
   return sessions.map(session => {
     return {
