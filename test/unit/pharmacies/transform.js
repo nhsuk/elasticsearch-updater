@@ -79,8 +79,7 @@ const alterations = {
       opens: '11:00',
       closes: '16:00'
     }
-  ],
-  '2015-01-01': []
+  ]
 };
 
 function createSampleRecordArray() {
@@ -148,13 +147,31 @@ describe('Profiles transform', () => {
     const otAltOffset = transformedData[0].openingTimesAlterationsAsOffset;
     // eslint-disable-next-line
     expect(otAltOffset).to.exist;
-    expect(otAltOffset.length).to.equal(6);
+    expect(otAltOffset.length).to.equal(5);
     expectAltOpenClose(otAltOffset[0], '2014-05-05', 660, 960);
     expectAltOpenClose(otAltOffset[1], '2014-05-26', 660, 960);
     expectAltOpenClose(otAltOffset[2], '2014-04-18', 660, 960);
     expectAltOpenClose(otAltOffset[3], '2014-04-21', 660, 960);
     expectAltOpenClose(otAltOffset[4], '2014-08-25', 660, 960);
-    expectAltOpenClose(otAltOffset[5], '2015-01-01', undefined, undefined);
+  });
+
+  it('should add \'closed all day\' alteration to openingTimesAlterationsAsOffset as date with undefined open and closed', () => {
+    const closedAlterations = { '2015-01-01': [] };
+    const closedAlterationRecordArray = [{
+      identifierType: 'Pharmacy Contract',
+      openingTimes: {
+        general,
+        alterations: closedAlterations
+      },
+    }
+    ];
+    const transformedData = transform(closedAlterationRecordArray);
+    expect(transformedData.length).to.equal(1);
+    const otAltOffset = transformedData[0].openingTimesAlterationsAsOffset;
+    // eslint-disable-next-line
+    expect(otAltOffset).to.exist;
+    expect(otAltOffset.length).to.equal(1);
+    expectAltOpenClose(otAltOffset[0], '2015-01-01', undefined, undefined);
   });
 
   it('should gracefully handle missing openingTimes', () => {
