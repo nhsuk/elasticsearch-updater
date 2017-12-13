@@ -1,3 +1,8 @@
+0.6.0 / 2017-12-14
+==================
+- Update npm dependencies
+- Set 'opens' and 'closes' to undefined on openingTimesAlterationsAsOffset when closed all day
+
 0.5.1 / 2017-11-21
 ==================
 - Allow shard and replica numbers to be set on index creation

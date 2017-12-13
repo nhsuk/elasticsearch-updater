@@ -21,6 +21,9 @@ function timesToMinutesSinceSunday(day, index) {
 }
 
 function altTimesToMinutesSinceMidnight(date, sessions) {
+  if (sessions.length === 0) {
+    return { date };
+  }
   // eslint-disable-next-line
   return sessions.map(session => {
     return {

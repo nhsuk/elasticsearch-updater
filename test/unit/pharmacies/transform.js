@@ -155,6 +155,25 @@ describe('Profiles transform', () => {
     expectAltOpenClose(otAltOffset[4], '2014-08-25', 660, 960);
   });
 
+  it('should add \'closed all day\' alteration to openingTimesAlterationsAsOffset as date with undefined open and closed', () => {
+    const closedAlterations = { '2015-01-01': [] };
+    const closedAlterationRecordArray = [{
+      identifierType: 'Pharmacy Contract',
+      openingTimes: {
+        general,
+        alterations: closedAlterations
+      },
+    }
+    ];
+    const transformedData = transform(closedAlterationRecordArray);
+    expect(transformedData.length).to.equal(1);
+    const otAltOffset = transformedData[0].openingTimesAlterationsAsOffset;
+    // eslint-disable-next-line
+    expect(otAltOffset).to.exist;
+    expect(otAltOffset.length).to.equal(1);
+    expectAltOpenClose(otAltOffset[0], '2015-01-01', undefined, undefined);
+  });
+
   it('should gracefully handle missing openingTimes', () => {
     const records = createSampleRecordArray();
     delete records[0].openingTimes;
