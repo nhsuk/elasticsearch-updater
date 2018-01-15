@@ -7,6 +7,7 @@ const esConfig = {
   index: process.env.ES_INDEX || 'profiles',
   host: process.env.ES_HOST,
   port: Number(process.env.ES_PORT) || 9200,
+  requestTimeoutSeconds: Number(process.env.ES_TIMEOUT_SECONDS) || 180,
   noOfReplicas: Number(process.env.ES_REPLICAS) || 1,
   noOfShards: Number(process.env.ES_SHARDS) || 5,
   // hold mappings and transforms on settings to allow adding pharmacy config in future
@@ -34,7 +35,10 @@ function getNested(obj, key) {
 }
 
 function getConnectionParams() {
-  return { host: `${esConfig.host}:${esConfig.port}` };
+  return {
+    host: `${esConfig.host}:${esConfig.port}`,
+    requestTimeout: esConfig.requestTimeoutSeconds * 1000
+  };
 }
 
 function getIndexSettings() {
