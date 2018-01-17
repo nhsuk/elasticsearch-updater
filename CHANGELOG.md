@@ -1,6 +1,7 @@
-0.6.1 / TBD
+0.7.0 / TBD
 ==================
 Expose Elasticsearch timeout as environment variable
+Remove orphaned indexes prior to update
 
 0.6.0 / 2017-12-14
 ==================
