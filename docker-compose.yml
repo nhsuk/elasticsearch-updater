@@ -14,7 +14,6 @@ services:
       ES_HOST: es
       ES_INDEX: profiles
       CHANGE_THRESHOLD: '0.96'
-      ES_TIMEOUT_SECONDS: '30'
 
   elasticsearch-updater-profiles:
     extends:

@@ -12,14 +12,18 @@ const index1 = `${orphanAlias}_20180117100000`;
 const index2 = `${orphanAlias}_20180117100010`;
 const index3 = `${orphanAlias}_20180117100020`;
 
+async function deleteTestIndexes() {
+  await esClient.delete(index1);
+  await esClient.delete(index2);
+  await esClient.delete(index3);
+}
+
 describe('Elasticsearch Client', function test() {
   this.timeout(maxWaitTime);
 
   before(async () => {
-    await esClient.waitForHealthyEs().then();
-    await esClient.delete(index1);
-    await esClient.delete(index2);
-    await esClient.delete(index3);
+    await esClient.waitForHealthyEs();
+    await deleteTestIndexes();
   });
 
   beforeEach((done) => {
