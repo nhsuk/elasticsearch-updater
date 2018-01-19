@@ -46,7 +46,6 @@ describe('Elasticsearch Client', function test() {
 
   it('create index should create mapping and load data into index', async () => {
     const result = await esClient.createIndex(indexName, sampleData);
-    // eslint-disable-next-line no-unused-expressions
     expect(result.count).to.equal(4);
     expect(result.errors).to.equal(false);
   });

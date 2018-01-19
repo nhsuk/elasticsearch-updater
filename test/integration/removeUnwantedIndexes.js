@@ -63,7 +63,6 @@ describe('Elasticsearch Client', function test() {
     const result = await removeUnwantedIndexes(orphanAlias);
     // order returned not deterministic, sort before check
     result.sort();
-    // eslint-disable-next-line no-unused-expressions
     expect(result.length).to.equal(2);
     expect(await esClient.exists(index2)).to.be.false;
     expect(await esClient.exists(index3)).to.be.false;
@@ -79,7 +78,6 @@ describe('Elasticsearch Client', function test() {
     const result = await removeUnwantedIndexes(orphanAlias);
     // order returned not deterministic, sort before check
     result.sort();
-    // eslint-disable-next-line no-unused-expressions
     expect(result.length).to.equal(1);
     expect(result[0]).to.equal(index4);
     expect(await esClient.exists(index4)).to.be.false;
@@ -94,7 +92,6 @@ describe('Elasticsearch Client', function test() {
     const result = await removeUnwantedIndexes(orphanAlias);
     // order returned not deterministic, sort before check
     result.sort();
-    // eslint-disable-next-line no-unused-expressions
     expect(result.length).to.equal(1);
     expect(result[0]).to.equal(expiredWatcher);
     expect(await esClient.exists(todayWatcher)).to.be.true;
@@ -110,7 +107,6 @@ describe('Elasticsearch Client', function test() {
     const result = await removeUnwantedIndexes(orphanAlias);
     // order returned not deterministic, sort before check
     result.sort();
-    // eslint-disable-next-line no-unused-expressions
     expect(result.length).to.equal(1);
     expect(result[0]).to.equal(expiredMonitor);
     expect(await esClient.exists(todayMonitor)).to.be.true;
