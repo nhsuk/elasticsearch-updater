@@ -2,11 +2,13 @@ const chai = require('chai');
 const moment = require('moment');
 
 const esClient = require('../../lib/es/esClient');
+const esHelper = require('./esHelper');
+const esConfig = require('../../config/esConfig');
 const removeUnwantedIndexes = require('../../lib/es/removeUnwantedIndexes');
 const sampleData = require('../resources/sample-data');
 
 const expect = chai.expect;
-const maxWaitTime = 1 * 60 * 1000;
+const maxWaitTime = 60 * 1000;
 const orphanAlias = 'profiles-orphan';
 const index1 = `${orphanAlias}_20180117100000`;
 const index2 = `${orphanAlias}_20180117100010`;
@@ -14,8 +16,8 @@ const index3 = `${orphanAlias}_20180117100020`;
 const index4 = `${orphanAlias}_20180117100030`;
 const index5 = `${orphanAlias}_20180117100040`;
 
-const watcherPrefix = '.watcher-history-6-';
-const monitorPrefix = '.monitoring-es-6-';
+const watcherPrefix = esConfig.watcherPrefix;
+const monitorPrefix = esConfig.monitorPrefix;
 
 function getIndexNames(prefix) {
   const now = moment();
@@ -29,20 +31,6 @@ function getIndexNames(prefix) {
 const [todayWatcher, oldestWatcher, expiredWatcher] = getIndexNames(watcherPrefix);
 const [todayMonitor, oldestMonitor, expiredMonitor] = getIndexNames(monitorPrefix);
 
-async function deleteTestIndexes() {
-  await esClient.delete(index1);
-  await esClient.delete(index2);
-  await esClient.delete(index3);
-  await esClient.delete(index4);
-  await esClient.delete(index5);
-  await esClient.delete(expiredWatcher);
-  await esClient.delete(oldestWatcher);
-  await esClient.delete(todayWatcher);
-  await esClient.delete(todayMonitor);
-  await esClient.delete(oldestMonitor);
-  await esClient.delete(expiredMonitor);
-}
-
 describe('Elasticsearch Client', function test() {
   this.timeout(maxWaitTime);
 
@@ -51,7 +39,7 @@ describe('Elasticsearch Client', function test() {
   });
 
   beforeEach(async () => {
-    await deleteTestIndexes();
+    await esHelper.deleteAllIndexes();
   });
 
   it('removeUnwantedIndexes should remove previous indexes with no alias', async () => {
@@ -69,7 +57,7 @@ describe('Elasticsearch Client', function test() {
     expect(await esClient.exists(index1)).to.be.true;
   });
 
-  it('removeUnwantedIndexes should remove duplicate aliases', async () => {
+  it('removeUnwantedIndexes should remove oldest duplicate aliases', async () => {
     // simulate creating orphaned indexes - these have the alias as a prefix and a datestamp
     await esClient.createIndex(index4, sampleData);
     await esClient.createIndex(index5, sampleData);

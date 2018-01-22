@@ -1,16 +1,13 @@
 const chai = require('chai');
 
 const esClient = require('../../lib/es/esClient');
+const esHelper = require('./esHelper');
 const sampleData = require('../resources/sample-data');
 
 const expect = chai.expect;
-const maxWaitTime = 1 * 60 * 1000;
+const maxWaitTime = 60 * 1000;
 const indexName = 'profiles-test';
 const aliasName = 'profiles-alias';
-
-async function deleteTestIndexes() {
-  await esClient.delete(indexName);
-}
 
 describe('Elasticsearch Client', function test() {
   this.timeout(maxWaitTime);
@@ -20,7 +17,7 @@ describe('Elasticsearch Client', function test() {
   });
 
   beforeEach(async () => {
-    await deleteTestIndexes();
+    await esHelper.deleteAllIndexes();
   });
 
   it('getIndexAlias should return current index for alias', async () => {

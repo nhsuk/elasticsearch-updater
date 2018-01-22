@@ -10,6 +10,9 @@ const esConfig = {
   requestTimeoutSeconds: Number(process.env.ES_TIMEOUT_SECONDS) || 180,
   noOfReplicas: Number(process.env.ES_REPLICAS) || 1,
   noOfShards: Number(process.env.ES_SHARDS) || 5,
+
+  watcherPrefix: process.env.ES_WATCHER_PREFIX || '.watcher-history-6-',
+  monitorPrefix: process.env.ES_MONITOR_PREFIX || '.monitoring-es-6-',
   // hold mappings and transforms on settings to allow adding pharmacy config in future
   settings: {
     profiles: {
@@ -80,4 +83,6 @@ module.exports = {
   getTransform,
   getIdKey,
   getType,
+  watcherPrefix: esConfig.watcherPrefix,
+  monitorPrefix: esConfig.monitorPrefix
 };
