@@ -1,5 +1,7 @@
-0.6.1 / TBD
+0.7.0 / 2018-01-23
 ==================
+Expose Elasticsearch timeout as environment variable
+Remove orphaned indexes, duplicate aliases, and old monitor and watch indexes prior to update
 
 0.6.0 / 2017-12-14
 ==================

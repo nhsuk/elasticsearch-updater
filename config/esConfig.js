@@ -7,8 +7,12 @@ const esConfig = {
   index: process.env.ES_INDEX || 'profiles',
   host: process.env.ES_HOST,
   port: Number(process.env.ES_PORT) || 9200,
+  requestTimeoutSeconds: Number(process.env.ES_TIMEOUT_SECONDS) || 180,
   noOfReplicas: Number(process.env.ES_REPLICAS) || 1,
   noOfShards: Number(process.env.ES_SHARDS) || 5,
+
+  watcherPrefix: process.env.ES_WATCHER_PREFIX || '.watcher-history-6-',
+  monitorPrefix: process.env.ES_MONITOR_PREFIX || '.monitoring-es-6-',
   // hold mappings and transforms on settings to allow adding pharmacy config in future
   settings: {
     profiles: {
@@ -34,7 +38,10 @@ function getNested(obj, key) {
 }
 
 function getConnectionParams() {
-  return { host: `${esConfig.host}:${esConfig.port}` };
+  return {
+    host: `${esConfig.host}:${esConfig.port}`,
+    requestTimeout: esConfig.requestTimeoutSeconds * 1000
+  };
 }
 
 function getIndexSettings() {
@@ -76,4 +83,6 @@ module.exports = {
   getTransform,
   getIdKey,
   getType,
+  watcherPrefix: esConfig.watcherPrefix,
+  monitorPrefix: esConfig.monitorPrefix
 };
