@@ -15,7 +15,7 @@ const esConfig = {
   monitorPrefix: process.env.ES_MONITOR_PREFIX || '.monitoring-es-6-',
   // hold mappings and transforms on settings to allow adding pharmacy config in future
   settings: {
-    profiles: {
+    profiles2: {
       type: 'gps',
       idKey: 'choicesId',
       mapping: profilesMapping,
