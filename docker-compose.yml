@@ -12,7 +12,7 @@ services:
       UPDATE_SCHEDULE: ${UPDATE_SCHEDULE}
       JSON_FILE_URL: https://nhsukgpdataetl.blob.core.windows.net/etl-output/gp-data-merged.json
       ES_HOST: es
-      ES_INDEX: profiles
+      ES_INDEX: profiles2
       CHANGE_THRESHOLD: '0.96'
 
   elasticsearch-updater-profiles:
@@ -22,7 +22,7 @@ services:
       - elasticsearch-updater-profiles-node_modules:/code/node_modules
     environment:
       JSON_FILE_URL: https://nhsukgpdataetl.blob.core.windows.net/etl-output/gp-data-merged.json
-      ES_INDEX: profiles
+      ES_INDEX: profiles2
     links:
     - elasticsearch:es
 

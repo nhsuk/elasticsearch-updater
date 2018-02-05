@@ -2,10 +2,25 @@
   "settings":{
     "analysis":{
       "analyzer":{
-        "gp_name_analyzer":{
+        "surgery_name_analyzer":{
           "type":"custom",
           "tokenizer":"name_tokenizer",
-          "filter":[ "lowercase", "gp_title_stop" ]
+          "filter":[ "lowercase", "surgery_name_stop" ]
+        },
+        "fuzzy_surgery_name_analyzer":{
+          "type":"custom",
+          "tokenizer":"name_tokenizer",
+          "filter":[ "lowercase", "surgery_name_stop", "trigrams_filter" ]
+        },
+        "shingle_surgery_name_analyzer":{
+          "type":"custom",
+          "tokenizer":"name_tokenizer",
+          "filter":[ "lowercase", "shingle_filter" ]
+        },
+        "reverse_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": ["lowercase", "reverse"]
         }
       },
       "tokenizer": {
@@ -14,10 +29,20 @@
           "pattern": "[^a-zA-Z']+"
         }
       },
-      "filter":{
-        "gp_title_stop":{
+      "filter": {
+        "surgery_name_stop":{
           "type":"stop",
-          "stopwords": [ "doctor", "doctors", "dr", "drs" ]
+          "stopwords": [ "surgery", "health", "centre", "medical" ]
+        },
+        "trigrams_filter": {
+          "type":     "ngram",
+          "min_gram": 3,
+          "max_gram": 3
+        },
+        "shingle_filter": {
+          "type": "shingle",
+          "min_shingle_size": 2,
+          "max_shingle_size": 3
         }
       }
     }
@@ -50,44 +75,10 @@
           "type": "boolean"
         },
         "address": {
-          "properties": {
-            "addressLines": {
-              "type": "text",
-              "fields": {
-                "keyword": {
-                  "type": "keyword",
-                  "ignore_above": 256
-                }
-              }
-            },
-            "postcode": {
-              "type": "text",
-              "fields": {
-                "keyword": {
-                  "type": "keyword",
-                  "ignore_above": 256
-                }
-              }
-            }
-          }
+          "enabled": false
         },
         "displayName": {
-          "type": "text",
-          "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
-          }
-        },
-        "doctors": {
-          "type": "nested",
-          "properties": {
-            "name" : {
-              "type": "string",
-              "analyzer": "gp_name_analyzer"
-            }
-          }
+          "enabled": false
         },
         "location" : {
           "properties" : {
@@ -99,10 +90,35 @@
         "name": {
           "type": "text",
           "fields": {
-            "keyword": {
-              "type": "keyword",
-              "ignore_above": 256
-            }
+             "precise": {
+               "type": "text",
+               "analyzer": "surgery_name_analyzer"
+             },
+             "trigram": {
+               "type": "text",
+               "analyzer": "fuzzy_surgery_name_analyzer"
+             },
+             "shingle": {
+               "type": "text",
+               "analyzer": "shingle_surgery_name_analyzer"
+             },
+             "reverse": {
+               "type": "text",
+               "analyzer": "reverse_analyzer"
+             }
+          }
+        },
+        "alternativeName": {
+          "type": "text",
+          "fields": {
+             "precise": {
+               "type": "text",
+               "analyzer": "surgery_name_analyzer"
+             },
+             "trigram": {
+               "type": "text",
+               "analyzer": "fuzzy_surgery_name_analyzer"
+             }
           }
         }
       }
