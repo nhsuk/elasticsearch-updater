@@ -11,6 +11,16 @@
           "type":"custom",
           "tokenizer":"name_tokenizer",
           "filter":[ "lowercase", "surgery_name_stop", "trigrams_filter" ]
+        },
+        "shingle_surgery_name_analyzer":{
+          "type":"custom",
+          "tokenizer":"name_tokenizer",
+          "filter":[ "lowercase", "shingle_filter" ]
+        },
+        "reverse_analyzer": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": ["lowercase", "reverse"]
         }
       },
       "tokenizer": {
@@ -19,7 +29,7 @@
           "pattern": "[^a-zA-Z']+"
         }
       },
-      "filter":{
+      "filter": {
         "surgery_name_stop":{
           "type":"stop",
           "stopwords": [ "surgery", "health", "centre", "medical" ]
@@ -28,6 +38,11 @@
           "type":     "ngram",
           "min_gram": 3,
           "max_gram": 3
+        },
+        "shingle_filter": {
+          "type": "shingle",
+          "min_shingle_size": 2,
+          "max_shingle_size": 3
         }
       }
     }
@@ -82,6 +97,14 @@
              "trigram": {
                "type": "text",
                "analyzer": "fuzzy_surgery_name_analyzer"
+             },
+             "shingle": {
+               "type": "text",
+               "analyzer": "shingle_surgery_name_analyzer"
+             },
+             "reverse": {
+               "type": "text",
+               "analyzer": "reverse_analyzer"
              }
           }
         },
