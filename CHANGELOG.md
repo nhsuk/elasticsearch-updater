@@ -1,3 +1,7 @@
+0.7.0 / TBA
+==================
+Add sexual health services
+
 0.7.0 / 2018-01-23
 ==================
 Expose Elasticsearch timeout as environment variable

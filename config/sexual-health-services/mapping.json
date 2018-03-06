@@ -1,0 +1,29 @@
+{
+  "settings":{
+  },
+  "mappings": {
+    "sexual-health-service": {
+      "properties": {
+        "location" : {
+          "properties" : {
+            "coordinates" : {
+              "type" : "geo_point"
+            }
+          }
+        },
+        "type": {
+          "type":  "keyword"
+        },
+        "name": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,3 +4,9 @@ services:
   elasticsearch-updater-profiles:
     scale: 1
     start_on_create: true
+  elasticsearch-updater-pharmacies:
+    scale: 1
+    start_on_create: true
+  elasticsearch-updater-sexual-health-services:
+    scale: 1
+    start_on_create: true

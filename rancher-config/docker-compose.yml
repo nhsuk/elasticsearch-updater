@@ -56,3 +56,31 @@ services:
         splunk-verify-connection: "false"
         tag: "{{`{{.ImageName}} {{.Name}} {{.FullID}}`}}"
         splunk-format: json
+
+  elasticsearch-updater-sexual-health-services:
+    image: nhsuk/elasticsearch-updater:${DOCKER_IMAGE_TAG}
+    environment:
+      NODE_ENV: production
+      JSON_FILE_URL: ${JSON_FILE_URL_SEXUAL_HEALTH_SERVICES}
+      ES_HOST: ${ES_HOST_SEXUAL_HEALTH_SERVICES}
+      ES_REPLICAS: ${ES_REPLICAS_SEXUAL_HEALTH_SERVICES}
+      ES_SHARDS: ${ES_SHARDS_SEXUAL_HEALTH_SERVICES}
+      ES_WATCHER_PREFIX: ${ES_WATCHER_PREFIX_SEXUAL_HEALTH_SERVICES}
+      ES_MONITOR_PREFIX: ${ES_MONITOR_PREFIX_SEXUAL_HEALTH_SERVICES}
+      ES_INDEX: sexual-health-services
+      ES_TIMEOUT_SECONDS: ${ES_TIMEOUT_SECONDS_SEXUAL_HEALTH_SERVICES}
+      CHANGE_THRESHOLD: ${CHANGE_THRESHOLD_SEXUAL_HEALTH_SERVICES}
+      UPDATE_SCHEDULE: ${UPDATE_SCHEDULE_SEXUAL_HEALTH_SERVICES}
+    labels:
+      io.rancher.container.pull_image: always
+    logging:
+      driver: splunk
+      options:
+        splunk-url: ${SPLUNK_HEC_URL}
+        splunk-token: ${SPLUNK_HEC_TOKEN}
+        splunk-insecureskipverify: "true"
+        splunk-sourcetype: docker
+        splunk-source: elasticsearch-updater-sexual-health-services
+        splunk-verify-connection: "false"
+        tag: "{{`{{.ImageName}} {{.Name}} {{.FullID}}`}}"
+        splunk-format: json
