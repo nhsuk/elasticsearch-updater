@@ -1,3 +1,8 @@
+0.8.0 / TBA
+==================
+Add sexual health services
+Upgrade to node to 8.9.4
+
 0.7.0 / 2018-01-23
 ==================
 Expose Elasticsearch timeout as environment variable

@@ -1,9 +1,9 @@
-FROM node:8.9.1-alpine
+FROM node:8.9.4-alpine
 
 ENV USERNAME nodeuser
 
 RUN adduser -D "$USERNAME" && \
-    mkdir -p /code/data && \
+    mkdir -p /code && \
     chown "$USERNAME":"$USERNAME" /code
 
 USER $USERNAME
@@ -17,7 +17,5 @@ COPY . /code
 USER root
 RUN find /code -user 0 -print0 | xargs -0 chown "$USERNAME":"$USERNAME"
 USER $USERNAME
-
-VOLUME /code/data
 
 CMD [ "node", "app" ]

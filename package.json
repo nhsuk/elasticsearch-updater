@@ -1,6 +1,6 @@
 {
   "name": "elasticsearch-updater",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Updates an Elasticsearch instance from a JSON file",
   "main": "scheduler.js",
   "repository": "https://github.com/nhsuk/elasticsearch-updater.git",
@@ -49,6 +49,8 @@
     "moment": "^2.20.1",
     "nhsuk-bunyan-logger": "^1.6.1",
     "node-schedule": "^1.2.5",
+    "request": "^2.83.0",
+    "request-promise-native": "^1.0.5",
     "require-environment-variables": "^1.1.2",
     "wait-until": "^0.0.2"
   }

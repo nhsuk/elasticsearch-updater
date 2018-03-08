@@ -37,11 +37,23 @@ services:
     links:
     - elasticsearch:es
 
+  elasticsearch-updater-sexual-health-services:
+    extends:
+      service: base-app
+    volumes:
+      - elasticsearch-updater-sexual-health-services-node_modules:/code/node_modules
+    environment:
+      JSON_FILE_URL: https://primarycare.blob.core.windows.net/etl-output/shis-data.json
+      ES_INDEX: sexual-health-services
+    links:
+    - elasticsearch:es
+
   elasticsearch:
     image: "nhsuk/profiles-db-elastic:${profiles_db_elastic_docker_image_tag-0.4.0}"
     ports:
-      - 9200:9200 
+      - 9200:9200
 
 volumes:
   elasticsearch-updater-profiles-node_modules:
   elasticsearch-updater-pharmacies-node_modules:
+  elasticsearch-updater-sexual-health-services-node_modules:

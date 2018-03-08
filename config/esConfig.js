@@ -1,10 +1,9 @@
-const profilesMapping = require('./profiles/mapping');
-const profilesTransform = require('./profiles/transform');
-const pharmaciesMapping = require('./pharmacies/mapping');
-const pharmaciesTransform = require('./pharmacies/transform');
+const getProfilesSettings = require('./profiles/getSettings');
+const getPharmaciesSettings = require('./pharmacies/getSettings');
+const getSexualHealthSettings = require('./sexual-health-services/getSettings');
 
 const esConfig = {
-  index: process.env.ES_INDEX || 'profiles',
+  index: process.env.ES_INDEX,
   host: process.env.ES_HOST,
   port: Number(process.env.ES_PORT) || 9200,
   requestTimeoutSeconds: Number(process.env.ES_TIMEOUT_SECONDS) || 180,
@@ -15,18 +14,9 @@ const esConfig = {
   monitorPrefix: process.env.ES_MONITOR_PREFIX || '.monitoring-es-6-',
   // hold mappings and transforms on settings to allow adding pharmacy config in future
   settings: {
-    profiles: {
-      type: 'gps',
-      idKey: 'choicesId',
-      mapping: profilesMapping,
-      transform: profilesTransform,
-    },
-    pharmacies: {
-      type: 'pharmacy',
-      idKey: 'identifier',
-      mapping: pharmaciesMapping,
-      transform: pharmaciesTransform,
-    }
+    profiles: getProfilesSettings(),
+    pharmacies: getPharmaciesSettings(),
+    'sexual-health-services': getSexualHealthSettings()
   }
 };
 
