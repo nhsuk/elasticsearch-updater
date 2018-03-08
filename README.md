@@ -1,4 +1,5 @@
-# Scheduled service to load data from a URL into Elasticsearch
+# Elasticsearch Updater
+> Scheduled service to load data from a URL into Elasticsearch
 
 [![GitHub Release](https://img.shields.io/github/release/nhsuk/elasticsearch-updater.svg)](https://github.com/nhsuk/elasticsearch-updater/releases/latest/)
 [![Greenkeeper badge](https://badges.greenkeeper.io/nhsuk/elasticsearch-updater.svg)](https://greenkeeper.io/)
