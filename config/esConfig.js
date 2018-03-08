@@ -3,7 +3,7 @@ const getPharmaciesSettings = require('./pharmacies/getSettings');
 const getSexualHealthSettings = require('./sexual-health-services/getSettings');
 
 const esConfig = {
-  index: process.env.ES_INDEX || 'profiles',
+  index: process.env.ES_INDEX,
   host: process.env.ES_HOST,
   port: Number(process.env.ES_PORT) || 9200,
   requestTimeoutSeconds: Number(process.env.ES_TIMEOUT_SECONDS) || 180,

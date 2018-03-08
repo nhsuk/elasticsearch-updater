@@ -4,7 +4,7 @@ function getSettings() {
   return {
     type: 'sexual-health-service',
     idKey: 'id',
-    mapping
+    mapping,
   };
 }
 

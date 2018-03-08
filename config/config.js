@@ -5,7 +5,7 @@ const config = {
   },
   env: process.env.NODE_ENV || 'development',
   jsonFileUrl: process.env.JSON_FILE_URL,
-  index: process.env.ES_INDEX || 'profiles',
+  index: process.env.ES_INDEX,
   inputDir: './input',
   // percentage the records can be of previous before erroring
   threshold: Number(process.env.CHANGE_THRESHOLD) || 0.99,

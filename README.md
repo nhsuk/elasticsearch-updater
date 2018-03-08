@@ -45,13 +45,22 @@ the application is being run. This is best practice as described by
 | `LOG_LEVEL`                        | [log level](https://github.com/trentm/node-bunyan#levels)                | Depends on `NODE_ENV`   |            |
 | `JSON_FILE_URL`                    | publicly available URL of JSON data                                      |                         | yes        |
 | `ES_HOST`                          | host name of Elasticsearch server                                        |                         | yes        |
-| `ES_INDEX`                         | Elasticsearch configuration to read, currently only 'profiles' available | profiles                |            |
+| `ES_INDEX`                         | Elasticsearch configuration to read, currently only 'profiles' available |                         | yes        |
 | `ES_PORT`                          | port of Elasticsearch server                                             | 27017                   |            |
 | `ES_REPLICAS`                      | Number of replica for the index                                          | 1                       |            |
 | `ES_TIMEOUT_SECONDS`               | Maximum time in seconds to wait for response from Elasticsearch          | 180                     |            |
 | `ES_SHARDS`                        | Number of shards for the index                                           | 5                       |            |
 | `CHANGE_THRESHOLD`                 | factor the data count can change by before erroring                      | 0.99                    |            |
 | `UPDATE_SCHEDULE`                  | time of day to run the update                                            | 0 7 * * *  (7 am)       |            |
+
+## Docker Compose Structure for Deployment and Development
+
+The `docker-compose.yml` used for development and deployment via Rancher have a similar structure.
+A stack is run with three `elasticsearch-updater` images having different configurations pointing at the same Elasticsearch instance.
+
+The convention for environment variables used in the Rancher configuration is to add a suffix to each of the variables in the table above.
+These are then mapped to the appropriate suffix-less variable in the container,
+i.e. for the `pharmacies` container the `JSON_FILE_URL_PHARMACIES` is mapped to `JSON_FILE_URL`, `ES_HOST_PHARMACIES` is mapped to `ES_HOST` and so on.
 
 ## Architecture Decision Records
  
