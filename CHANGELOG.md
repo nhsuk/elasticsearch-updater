@@ -1,12 +1,13 @@
 0.8.0 / TBA
 ==================
-Add sexual health services
-Upgrade to node to 8.9.4
+- Add sexual health services
+- Upgrade to node to 8.10.0
+- Implement new eslint rules
 
 0.7.0 / 2018-01-23
 ==================
-Expose Elasticsearch timeout as environment variable
-Remove orphaned indexes, duplicate aliases, and old monitor and watch indexes prior to update
+- Expose Elasticsearch timeout as environment variable
+- Remove orphaned indexes, duplicate aliases, and old monitor and watch indexes prior to update
 
 0.6.0 / 2017-12-14
 ==================
