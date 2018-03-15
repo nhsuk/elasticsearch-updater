@@ -8,7 +8,7 @@ describe('Elasticsearch Client', () => {
   it('toBulkInsertArray should restructure array of data for bulk insert', () => {
     const data = [
       { id: 10 },
-      { id: 20 }
+      { id: 20 },
     ];
 
     const index = 'profiles';

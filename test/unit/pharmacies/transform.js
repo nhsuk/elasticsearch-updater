@@ -4,92 +4,94 @@ const transform = require('../../../config/pharmacies/transform');
 
 const expect = chai.expect;
 
+/* eslint-disable sort-keys */
 const general = {
   monday: [
     {
       opens: '08:00',
-      closes: '22:30'
-    }
+      closes: '22:30',
+    },
   ],
   tuesday: [
     {
       opens: '06:30',
-      closes: '22:30'
-    }
+      closes: '22:30',
+    },
   ],
   wednesday: [
     {
       opens: '06:30',
-      closes: '22:30'
-    }
+      closes: '22:30',
+    },
   ],
   thursday: [
     {
       opens: '06:30',
-      closes: '22:30'
-    }
+      closes: '22:30',
+    },
   ],
   friday: [
     {
       opens: '06:30',
-      closes: '22:30'
-    }
+      closes: '22:30',
+    },
   ],
   saturday: [
     {
       opens: '06:30',
-      closes: '22:00'
-    }
+      closes: '22:00',
+    },
   ],
   sunday: [
     {
       opens: '11:00',
-      closes: '17:00'
-    }
-  ]
+      closes: '17:00',
+    },
+  ],
 };
 
 const alterations = {
   '2014-05-05': [
     {
       opens: '11:00',
-      closes: '16:00'
-    }
+      closes: '16:00',
+    },
   ],
   '2014-05-26': [
     {
       opens: '11:00',
-      closes: '16:00'
-    }
+      closes: '16:00',
+    },
   ],
   '2014-04-18': [
     {
       opens: '11:00',
-      closes: '16:00'
-    }
+      closes: '16:00',
+    },
   ],
   '2014-04-21': [
     {
       opens: '11:00',
-      closes: '16:00'
-    }
+      closes: '16:00',
+    },
   ],
   '2014-08-25': [
     {
       opens: '11:00',
-      closes: '16:00'
-    }
-  ]
+      closes: '16:00',
+    },
+  ],
 };
+/* eslint-enable sort-keys */
 
 function createSampleRecordArray() {
   return [{
     identifierType: 'Pharmacy Contract',
     openingTimes: {
+      alterations,
       general,
-      alterations
     },
-  }
+  },
   ];
 }
 
@@ -97,9 +99,9 @@ function createSampleRecordNoAlternativesArray() {
   return [{
     identifierType: 'Pharmacy Contract',
     openingTimes: {
-      general
+      general,
     },
-  }
+  },
   ];
 }
 
@@ -107,9 +109,9 @@ function createSampleRecordNoGeneralArray() {
   return [{
     identifierType: 'Pharmacy Contract',
     openingTimes: {
-      alterations
+      alterations,
     },
-  }
+  },
   ];
 }
 
@@ -160,10 +162,10 @@ describe('Profiles transform', () => {
     const closedAlterationRecordArray = [{
       identifierType: 'Pharmacy Contract',
       openingTimes: {
+        alterations: closedAlterations,
         general,
-        alterations: closedAlterations
       },
-    }
+    },
     ];
     const transformedData = transform(closedAlterationRecordArray);
     expect(transformedData.length).to.equal(1);

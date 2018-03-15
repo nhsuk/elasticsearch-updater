@@ -3,10 +3,10 @@ const transform = require('./transform');
 
 function getSettings() {
   return {
-    type: 'gps',
     idKey: 'choicesId',
     mapping,
     transform,
+    type: 'gps',
   };
 }
 

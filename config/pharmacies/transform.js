@@ -14,8 +14,8 @@ function timesToMinutesSinceSunday(day, index) {
   // eslint-disable-next-line
   return day.map(times => {
     return {
+      closes: getMinutesOffset(index, times.closes),
       opens: getMinutesOffset(index, times.opens),
-      closes: getMinutesOffset(index, times.closes)
     };
   });
 }
@@ -27,9 +27,9 @@ function altTimesToMinutesSinceMidnight(date, sessions) {
   // eslint-disable-next-line
   return sessions.map(session => {
     return {
+      closes: getMinutesOffset(0, session.closes),
       date,
       opens: getMinutesOffset(0, session.opens),
-      closes: getMinutesOffset(0, session.closes)
     };
   });
 }
