@@ -3,10 +3,10 @@ const transform = require('./transform');
 
 function getSettings() {
   return {
-    type: 'pharmacy',
     idKey: 'identifier',
     mapping,
     transform,
+    type: 'pharmacy',
   };
 }
 

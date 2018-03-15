@@ -9,5 +9,5 @@ async function deleteAllIndexes() {
   }
 }
 module.exports = {
-  deleteAllIndexes
+  deleteAllIndexes,
 };

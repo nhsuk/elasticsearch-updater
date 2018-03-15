@@ -7,16 +7,16 @@ const expect = chai.expect;
 function createSampleRecordArray() {
   return [{
     _id: 40565,
-    doctors: ['Dr. Babar Farooq', 'Dr. Kish Iqbal'],
     address: {
       addressLines: [
         'Chapel Street Practice',
         '138 Chapel Street',
         'Salford',
-        'England - Uk'
+        'England - Uk',
       ],
-      postcode: 'M3 6AF'
-    }
+      postcode: 'M3 6AF',
+    },
+    doctors: ['Dr. Babar Farooq', 'Dr. Kish Iqbal'],
   }];
 }
 

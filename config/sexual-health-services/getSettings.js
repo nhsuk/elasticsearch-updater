@@ -2,9 +2,9 @@ const mapping = require('./mapping');
 
 function getSettings() {
   return {
-    type: 'sexual-health-service',
     idKey: 'id',
     mapping,
+    type: 'sexual-health-service',
   };
 }
 
