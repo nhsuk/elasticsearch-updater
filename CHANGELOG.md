@@ -1,4 +1,8 @@
-0.8.0 / TBA
+0.9.0 / TBA
+==================
+- Remove snyk, update packages
+
+0.8.0 / 2018-03-02
 ==================
 - Add sexual health services
 - Upgrade to node to 8.10.0
