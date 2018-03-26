@@ -1,6 +1,6 @@
 {
   "name": "elasticsearch-updater",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Updates an Elasticsearch instance from a JSON file",
   "main": "scheduler.js",
   "repository": "https://github.com/nhsuk/elasticsearch-updater.git",
@@ -15,7 +15,7 @@
     "lint": "eslint --ext .js,.json .",
     "postrewrite": "yarn git-hook",
     "precommit": "yarn git-hook",
-    "prepush": "yarn git-hook && yarn snyk test",
+    "prepush": "yarn git-hook",
     "start": "node app.js",
     "test": "NODE_ENV=test mocha --recursive test",
     "test-ci": "yarn lint && yarn coverage-generate && yarn coverage-check && yarn coverage-upload-coveralls",
@@ -35,13 +35,12 @@
     "eslint-config-airbnb-base": "^12.0.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-json": "^1.2.0",
-    "eslint-plugin-mocha": "^4.10.1",
+    "eslint-plugin-mocha": "^5.0.0",
     "eslint-watch": "^3.1.1",
     "husky": "^0.14.3",
     "istanbul": "^1.1.0-alpha.1",
     "mocha": "^5.0.0",
-    "nock": "^9.0.14",
-    "snyk": "^1.40.2"
+    "nock": "^9.0.14"
   },
   "dependencies": {
     "elasticsearch": "^14.0.0",
