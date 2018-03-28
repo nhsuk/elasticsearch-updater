@@ -1,6 +1,8 @@
 0.9.0 / TBA
 ==================
 - Remove snyk, update packages
+- Improve layout of `README`
+- Use merged data file for sexual health service data
 
 0.8.0 / 2018-03-02
 ==================

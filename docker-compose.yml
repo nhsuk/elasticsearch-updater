@@ -43,7 +43,7 @@ services:
     volumes:
       - elasticsearch-updater-sexual-health-services-node_modules:/code/node_modules
     environment:
-      JSON_FILE_URL: https://primarycare.blob.core.windows.net/etl-output/shis-data.json
+      JSON_FILE_URL: https://primarycare.blob.core.windows.net/etl-output/sexual-health-service-data-merged.json
       ES_INDEX: sexual-health-services
     links:
     - elasticsearch:es
