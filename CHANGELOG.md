@@ -1,4 +1,4 @@
-0.10.0 / TBA
+0.10.0 / 2018-04-12
 ==================
 - Changes to sexual health services mapping and transform to support pharmacy data and aggregation
 
