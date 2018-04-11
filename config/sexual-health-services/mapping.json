@@ -4,6 +4,9 @@
   "mappings": {
     "sexual-health-service": {
       "properties": {
+        "openingTimes": {
+          "enabled": false
+        },
         "location" : {
           "properties" : {
             "coordinates" : {
