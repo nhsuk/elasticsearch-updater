@@ -1,4 +1,8 @@
-0.9.0 / TBA
+0.10.0 / TBA
+==================
+- Changes to sexual health services mapping and transform to support pharmacy data and aggregation
+
+0.9.0 / 2018-03-28
 ==================
 - Remove snyk, update packages
 - Improve layout of `README`
