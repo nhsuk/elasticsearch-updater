@@ -23,7 +23,10 @@
           },
           "type": "text"
         },
-        "type": {
+        "serviceType": {
+          "type":  "keyword"
+        },
+        "uid": {
           "type":  "keyword"
         }
       }
