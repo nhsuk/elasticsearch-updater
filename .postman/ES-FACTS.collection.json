@@ -1,0 +1,73 @@
+{
+	"info": {
+		"_postman_id": "33f5e5a5-a472-4dc0-8e34-6e46825f3747",
+		"name": "ElasticSearch: Find A Chlamydia Test Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Sexual health information and support - LS1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"collapse\": {\n    \"field\": \"uid\"\n  },\n  \"query\": {\n    \"bool\": {\n      \"must\": [\n        {\n          \"match\": {\n            \"serviceType\": \"Sexual health information and support\"\n          }\n        },\n        {\n          \"match\": {\n            \"venueType\": \"Clinic\"\n          }\n        }\n      ],\n      \"must_not\": [\n        {\n          \"match\": {\n            \"name\": \"Marie Stopes\"\n          }\n        },\n        {\n          \"match\": {\n            \"name\": \"Young People Friendly Practice\"\n          }\n        },\n        {\n          \"match\": {\n            \"name\": \"BPAS\"\n          }\n        }\n      ]\n    }\n  },\n  \"size\": 30,\n  \"sort\": [\n    {\n      \"_geo_distance\": {\n        \"distance_type\": \"arc\",\n        \"location.coordinates\": {\n          \"lat\": 53.7974737203539,\n          \"lon\": -1.55262247079646\n        },\n        \"order\": \"asc\",\n        \"unit\": \"mi\"\n      }\n    }\n  ]\n}"
+				},
+				"url": {
+					"raw": "http://{{hostname}}:{{port}}/sexual-health-services/_search",
+					"protocol": "http",
+					"host": [
+						"{{hostname}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"sexual-health-services",
+						"_search"
+					]
+				},
+				"description": "For U16's and those with symptoms"
+			},
+			"response": []
+		},
+		{
+			"name": "Collect A Free Kit - LS1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"collapse\": {\n    \"field\": \"uid\"\n  },\n  \"query\": {\n    \"bool\": {\n      \"minimum_should_match\": 1,\n      \"must_not\": [\n        {\n          \"match\": {\n            \"name\": \"Marie Stopes\"\n          }\n        },\n        {\n          \"match\": {\n            \"name\": \"Young People Friendly Practice\"\n          }\n        },\n        {\n          \"match\": {\n            \"name\": \"BPAS\"\n          }\n        }\n      ],\n      \"should\": [\n        {\n          \"bool\": {\n            \"must\": [\n              {\n                \"match\": {\n                  \"serviceType\": \"SRV0267\"\n                }\n              }\n            ]\n          }\n        },\n        {\n          \"bool\": {\n            \"must\": [\n              {\n                \"match\": {\n                  \"serviceType\": \"Sexual health information and support\"\n                }\n              },\n              {\n                \"match\": {\n                  \"venueType\": \"Community\"\n                }\n              }\n            ]\n          }\n        },\n        {\n          \"bool\": {\n            \"minimum_should_match\": 1,\n            \"must\": {\n              \"match\": {\n                \"serviceType\": \"Chlamydia screening under 25s\"\n              }\n            },\n            \"should\": [\n              {\n                \"match\": {\n                  \"venueType\": \"Clinic\"\n                }\n              },\n              {\n                \"match\": {\n                  \"venueType\": \"Community\"\n                }\n              }\n            ]\n          }\n        }\n      ]\n    }\n  },\n  \"size\": 30,\n  \"sort\": [\n    {\n      \"_geo_distance\": {\n        \"distance_type\": \"arc\",\n        \"location.coordinates\": {\n          \"lat\": 53.7974737203539,\n          \"lon\": -1.55262247079646\n        },\n        \"order\": \"asc\",\n        \"unit\": \"mi\"\n      }\n    }\n  ]\n}\n"
+				},
+				"url": {
+					"raw": "http://{{hostname}}:{{port}}/sexual-health-services/_search",
+					"protocol": "http",
+					"host": [
+						"{{hostname}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"sexual-health-services",
+						"_search"
+					]
+				},
+				"description": "For ages 16 to 24"
+			},
+			"response": []
+		}
+	]
+}
