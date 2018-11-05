@@ -1,6 +1,6 @@
 {
   "name": "elasticsearch-updater",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "Updates an Elasticsearch instance from a JSON file",
   "main": "scheduler.js",
   "repository": "https://github.com/nhsuk/elasticsearch-updater.git",

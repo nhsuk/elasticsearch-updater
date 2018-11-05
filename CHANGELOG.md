@@ -1,3 +1,7 @@
+0.11.0 / 2018-11-05
+==================
+- Update npm dependencies
+
 0.10.0 / 2018-04-12
 ==================
 - Changes to sexual health services mapping and transform to support pharmacy data and aggregation
