@@ -43,7 +43,7 @@
     "nock": "^9.0.14"
   },
   "dependencies": {
-    "elasticsearch": "^14.0.0",
+    "elasticsearch": "^15.2.0",
     "eslint-config-nhsuk": "^0.15.0",
     "moment": "^2.20.1",
     "nhsuk-bunyan-logger": "^1.6.1",
