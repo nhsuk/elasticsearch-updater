@@ -14,7 +14,7 @@ const esConfig = {
   settings: {
     pharmacies: getPharmaciesSettings(),
     profiles: getProfilesSettings(),
-    'sexual-health-services': getSexualHealthSettings(),
+    'sexual-health-services-test': getSexualHealthSettings(),
   },
   watcherPrefix: process.env.ES_WATCHER_PREFIX || '.watcher-history-6-',
 };
