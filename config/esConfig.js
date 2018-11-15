@@ -28,7 +28,7 @@ function getNested(obj, key) {
 
 function getConnectionParams() {
   return {
-    host: `${esConfig.host}:${esConfig.port}`,
+    host: `${esConfig.host}`,
     requestTimeout: esConfig.requestTimeoutSeconds * 1000,
   };
 }
