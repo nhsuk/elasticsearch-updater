@@ -568,12 +568,13 @@ coveralls@^3.0.0:
     minimist "^1.2.0"
     request "^2.85.0"
 
-cron-parser@^2.4.0:
-  version "2.6.0"
-  resolved "https://registry.yarnpkg.com/cron-parser/-/cron-parser-2.6.0.tgz#ae2514ceda9ccb540256e201bdd23ae814e03674"
+cron-parser@^2.7.3:
+  version "2.7.3"
+  resolved "https://registry.yarnpkg.com/cron-parser/-/cron-parser-2.7.3.tgz#12603f89f5375af353a9357be2543d3172eac651"
+  integrity sha512-t9Kc7HWBWPndBzvbdQ1YG9rpPRB37Tb/tTviziUOh1qs3TARGh3b1p+tnkOHNe1K5iI3oheBPgLqwotMM7+lpg==
   dependencies:
     is-nan "^1.2.1"
-    moment-timezone "^0.5.0"
+    moment-timezone "^0.5.23"
 
 cross-spawn@^5.0.1:
   version "5.1.0"
@@ -2071,9 +2072,10 @@ mocha@^5.0.0:
     mkdirp "0.5.1"
     supports-color "5.4.0"
 
-moment-timezone@^0.5.0:
+moment-timezone@^0.5.23:
   version "0.5.23"
   resolved "https://registry.yarnpkg.com/moment-timezone/-/moment-timezone-0.5.23.tgz#7cbb00db2c14c71b19303cb47b0fb0a6d8651463"
+  integrity sha512-WHFH85DkCfiNMDX5D3X7hpNH3/PUhjTGcD0U1SgfBGZxJ3qUmJh5FdvaFjcClxOvB3rzdfj4oRffbI38jEnC1w==
   dependencies:
     moment ">= 2.9.0"
 
@@ -2177,11 +2179,12 @@ node-pre-gyp@^0.10.0:
     semver "^5.3.0"
     tar "^4"
 
-node-schedule@^1.2.5:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/node-schedule/-/node-schedule-1.3.0.tgz#e7a7e816a7f2550d5b170bd106e765db28bdf030"
+node-schedule@^1.3.2:
+  version "1.3.2"
+  resolved "https://registry.yarnpkg.com/node-schedule/-/node-schedule-1.3.2.tgz#d774b383e2a6f6ade59eecc62254aea07cd758cb"
+  integrity sha512-GIND2pHMHiReSZSvS6dpZcDH7pGPGFfWBIEud6S00Q8zEIzAs9ommdyRK1ZbQt8y1LyZsJYZgPnyi7gpU2lcdw==
   dependencies:
-    cron-parser "^2.4.0"
+    cron-parser "^2.7.3"
     long-timeout "0.1.1"
     sorted-array-functions "^1.0.0"
 
@@ -2749,6 +2752,8 @@ run-node@^1.0.0:
 rxjs@^6.1.0:
   version "6.3.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz#3c6a7fa420e844a81390fb1158a9ec614f4bad55"
+  dependencies:
+    tslib "^1.9.0"
 
 safe-buffer@^5.0.1, safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
