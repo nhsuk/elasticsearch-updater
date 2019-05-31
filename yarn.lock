@@ -828,9 +828,10 @@ eslint-config-airbnb-base@^13.0.0:
     object.assign "^4.1.0"
     object.entries "^1.0.4"
 
-eslint-config-nhsuk@^0.16.0:
-  version "0.16.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-nhsuk/-/eslint-config-nhsuk-0.16.0.tgz#ff929962ef7057374b0f508b84ae767ee11e97e9"
+eslint-config-nhsuk@^0.17.0:
+  version "0.17.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-nhsuk/-/eslint-config-nhsuk-0.17.0.tgz#17c539cf3a310a31886ef0c8a338f835006bc81b"
+  integrity sha512-4ScoK+ukA6kBBnFZW8QXoFjPtUuk5CiUfZu/tLeM4uwPmCwSHjaqBVhKWvJdHmhEIsZOrzbTOw5UXYkjU1SzAg==
   dependencies:
     eslint "^5.0.0"
     eslint-config-airbnb-base "^13.0.0"
@@ -2749,6 +2750,8 @@ run-node@^1.0.0:
 rxjs@^6.1.0:
   version "6.3.3"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.3.3.tgz#3c6a7fa420e844a81390fb1158a9ec614f4bad55"
+  dependencies:
+    tslib "^1.9.0"
 
 safe-buffer@^5.0.1, safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
