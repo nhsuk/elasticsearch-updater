@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "elasticsearch": "^15.2.0",
-    "eslint-config-nhsuk": "^0.16.0",
+    "eslint-config-nhsuk": "^0.22.0",
     "moment": "^2.20.1",
     "nhsuk-bunyan-logger": "^1.6.1",
     "node-schedule": "^1.2.5",
