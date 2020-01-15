@@ -1,3 +1,7 @@
+# **DEPRECATED** - no longer actively maintained
+
+---
+
 # Elasticsearch Updater
 > Scheduled service to load data from a URL into Elasticsearch
 
